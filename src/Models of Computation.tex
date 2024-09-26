@@ -1,0 +1,195 @@
+\documentclass[a4paper, 12pt]{report}
+
+\usepackage[dvipsnames]{xcolor}
+
+%%%%%%%%%%%%%%%%%
+% Set Variables %
+%%%%%%%%%%%%%%%%%
+
+\def\useItalian{0}  % 1 = Italian, 0 = English
+
+\def\courseName{Models of Computation}
+
+\def\coursePrerequisites{
+    \begin{itemize}
+        \item Linguaggi di Programmazione
+        \item Tecniche di Programmazione Funzionale ed Imperativa
+    \end{itemize}
+}
+
+\def\book{TODO}
+
+% \def\authorName{Simone Bianco}
+% \def\email{bianco.simone@outlook.it}
+% \def\github{https://github.com/Exyss/university-notes}
+% \def\linkedin{https://www.linkedin.com/in/simone-bianco}
+
+\def\authorName{Alessio Bandiera}
+\def\email{alessio.bandiera02@gmail.com}
+\def\github{https://github.com/aflaag-notes}
+\def\linkedin{https://www.linkedin.com/in/alessio-bandiera-a53767223}
+
+% Do not change
+
+%%%%%%%%%%%%
+% Packages %
+%%%%%%%%%%%%
+
+\usepackage{../../packages/Nyx/nyx-packages}
+\usepackage{../../packages/Nyx/nyx-styles}
+\usepackage{../../packages/Nyx/nyx-frames}
+\usepackage{../../packages/Nyx/nyx-macros}
+\usepackage{../../packages/Nyx/nyx-title}
+\usepackage{../../packages/Nyx/nyx-intro}
+
+%%%%%%%%%%%%%%
+% Title-page %
+%%%%%%%%%%%%%%
+
+\logo{../../packages/Nyx/logo.png}
+
+\ifx\useItalian0
+    \institute{\curlyquotes{\hspace{0.25mm}Sapienza} Università di Roma}
+    \faculty{Ingegneria dell'Informazione,\\Informatica e Statistica}
+    \department{Dipartimento di Informatica}
+    \subtitle{Appunti integrati con il libro \book}
+    \author{\textit{Autore}\\\authorName}
+\else
+    \institute{\curlyquotes{\hspace{0.25mm}Sapienza} University of Rome}
+    \faculty{Faculty of Information Engineering,\\Informatics and Statistics}
+    \department{Department of Computer Science}
+    \subtitle{Lecture notes integrated with the book \book}
+    \author{\textit{Author}\\\authorName}
+\fi
+
+\title{\courseName}
+\date{\today}
+
+% \supervisor{Linus \textsc{Torvalds}}
+% \context{Well, I was bored\ldots}
+
+%%%%%%%%%%%%
+% Document %
+%%%%%%%%%%%%
+
+\begin{document}
+    \maketitle
+
+    % The following style changes are valid only inside this scope 
+    {
+        \hypersetup{allcolors=black}
+        \fancypagestyle{plain}{%
+        \fancyhead{}        % clear all header fields
+        \fancyfoot{}        % clear all header fields
+        \fancyfoot[C]{\thepage}
+        \renewcommand{\headrulewidth}{0pt}
+        \renewcommand{\footrulewidth}{0pt}}
+
+        \romantableofcontents
+    }
+
+    \introduction
+
+    %%%%%%%%%%%%%%%%%%%%%
+
+    \chapter{TODO}
+
+    \section{TODO}
+
+    \subsection{TODO}
+
+    TODO beginning paragraph
+
+    In this first section, examples will be omitted from this notes, refer to the notes of the \curlyquotes{\href{https://github.com/aflaag-notes/languages}{Linguaggi di Programmazione}} course for further details.
+
+    \begin{frameddefn}[breakable]{Lambda calculus}
+        Let $\mathrm{Var}$ be the set of all possible variables; thus, the \tbf{set $\Lambda$ of all possible $\lambda$-terms} is defined by the following rules:
+        \begin{gather*}
+            [var] \ \dfrac{x \in \mathrm{Var}}{x \in \Lambda} \\ \\
+            [appl] \ \dfrac{M \in \Lambda \quad N \in \Lambda}{M N \in \Lambda} \\ \\
+            [abs] \ \dfrac{x \in \mathrm{Var} \quad M \in \Lambda}{\lambda x.M \in \Lambda}
+        \end{gather*}
+
+        The terms of the form $\lambda x.M$ are called \tbf{$\lambda$-abstractions}, and $MN$ is the function application of $M$ to $N$. Note that function application \tit{associates to the left}, therefore $$MNL = (MN)L \neq M(NL)$$
+
+        Lambda calculus can be alternatively defined with the \href{https://en.wikipedia.org/wiki/Backus%E2%80%93Naur_form}{Backus Normal Form} (BNF), as follows: $$M, N ::= x \mid \lambda x.M \mid M N$$
+    \end{frameddefn}
+
+    Although \tit{all functions in lambda calculus are unary}, the following definition can expand this concept.
+
+    \begin{frameddefn}{Currying}
+        \tbf{Currying} (named after \href{https://en.wikipedia.org/wiki/Haskell_Curry}{Haskell Curry}) is defined as follows: $$\lambda x_1.(\ldots (\lambda x_n. y)) \equiv \lambda x_1 \ldots x_n . y$$
+    \end{frameddefn}
+
+    \begin{frameddefn}{Boundness}
+        A variable is said to be \tbf{bound} if it is declared in a $\lambda$-abstraction, otherwise it is said to be \tbf{free}.
+
+        A term that has no free variables is said to be \tbf{closed} or \tbf{combinator}.
+    \end{frameddefn}
+
+    \begin{example}[Boundness]
+        Consider the following term: $$\lambda x.xy$$ In this example, $x$ is \tit{bound}, and $y$ is \tit{free}.
+    \end{example}
+
+    \begin{frameddefn}{Notable combinators}
+        The following are some of the \tbf{notable combinators}:
+        \begin{gather*}
+            \mathrm I \equiv \lambda x.x \\
+            \mathrm K \equiv \lambda xy.x \\
+            \mathrm S \equiv \lambda xyz.xz(yz)
+        \end{gather*}
+    \end{frameddefn}
+
+    \begin{frameddefn}{Free variables}
+        Given a $\lambda$-term, the function $$\func{\mathrm{free}}{\Lambda}{\mathcal P(\mathrm{Var})}$$ returns the \tbf{set of free variables in $M$}, and it is defined recursively as follows:
+        $$\soe{l}{
+            \mathrm{free}(x) := \{x\} \\
+            \mathrm{free}(MN) := \mathrm{free}(M) \cup \mathrm{free}(N) \\
+            \mathrm{free}(\lambda x.M) := \mathrm{free}(M) - \{x\}
+        }$$
+    \end{frameddefn}
+
+    \begin{frameddefn}{Substitution}
+        The \tbf{substitution} operation is recursively defined by the following rules:
+        \begin{gather*}
+            x[N/x] = N \\ \\
+            y[N/x] = y \\ \\
+            (P Q)[N/x] = P[N/x] \ Q[N/x] \\ \\
+            (\lambda t.P)[N/x] = \lambda t.(P[N/x])
+        \end{gather*}
+
+        where $M[N/x]$ means that \tit{each instance of $x$ in $M$ is replaced with $N$}. Note that \tbf{only \tbf{free variables} may be substituted}.
+    \end{frameddefn}
+
+    \begin{frameddefn}[label={inf rules}]{Inference rules}
+        The following are the \tbf{inference rules} for the lambda caluclus:
+        \begin{gather*}
+            \rbk{\alpha} \ \lambda x.M \equiv (\lambda y.M)[y/x] \\ \\
+            \rbk{\beta} \ (\lambda x.M)N \betaconv M[N/x] \\ \\
+            \rbk{\mu} \ \dfrac{M \betaconv M'}{NM \betaconv NM'} \\ \\
+            \rbk{\nu} \ \dfrac{M \betaconv M'}{MN \betaconv M'N} \\ \\
+            \rbk{\xi} \ \dfrac{M \betaconv M'}{\lambda x.M \betaconv \lambda x.M'}
+        \end{gather*}
+
+        Note that the $\beta$-rule is effectively \tit{one step of the computation} described by the $\lambda$-term.
+    \end{frameddefn}
+
+    \begin{frameddefn}{Normal form}
+         If a term can be $\beta$-reduced, it is called \tbf{$\beta$-redex}, or simply \tbf{redex} (\tit{reducible expression}), and the reduced term is called \tbf{$\beta$-reduct}, or simply \tbf{reduct}.
+
+         If a term has no redexes, it is said to be in \tbf{normal form}.
+    \end{frameddefn}
+
+    \begin{framedobs}{Variable capture}
+        Consider the following $\lambda$-term: $$(\lambda xt.tx)(\lambda t.y) \betaconv \lambda t.t(\lambda t.y)$$ Note that the two $t$s are \tit{different}. In fact, underlining the $\lambda$-abstractions to which they are bounded to can help clarifying their distinction: $$(\lambda x\underline{t}.\underline{t}x)(\lambda t.y) \betaconv \lambda \underline{t}.\underline{t}(\lambda t.y)$$ Now, consider the following $\lambda$-term, similar to the previous one: $$(\lambda xy.yx)(\lambda t.y) \betaconv \lambda y.y(\lambda t.y)$$ This $\beta$-reduction created a problem, because now the two $y$s \tit{are the same}, even though they were not originally. In fact, the previous term can be relabeled as follows: $$(\lambda x \underline y. \underline y x)(\lambda t.y) \betaconv \lambda \underline y. \underline y (\lambda t. \underline y)$$ This happened because $$\mathrm{free}(\lambda t.y) = \{y\} - \{t\} = \{y\}$$ therefore $y$ was \tbf{captured} by the $y$ that was already present in the leftmost $\lambda$-abstraction. This phenomena is called \tbf{variable capturing}, and constitutes a problem when reducing $\beta$-redexes. In particular, to reduce this second $\lambda$-abstraction, it is necessary to apply a substitution, by using the $\alpha$ rule (refer to \cref{inf rules}): $$\lambda xy.yx = \lambda x(\lambda y.yx) = \lambda x.((\lambda y.yx)[u/y]) = \lambda x.(\lambda u.ux) = \lambda x u. ux$$ which means that the $\beta$-reduction can now be performed without any issue: $$(\lambda xu.ux)(\lambda t.y) \betaconv \lambda u.u(\lambda t.y)$$ where $y$ is still free. Note that it would not have been \tit{safe} to rename the other (free) $y$, because in general \tit{renaming free variables can create capturing problems as well}. For example, $y$ could have not been substituted with $t$, as it would otherwise be captured by the $t$ in the $\lambda$-term $\lambda t.y$, as follows: $$(\lambda t.y)[t/y] =\lambda t.t$$
+    \end{framedobs}
+
+    Fortunately, variable capturing can be solved by employing the following \tit{variable naming convention}.
+
+    \begin{frameddefn}{Variable naming convention}
+        To avoid variable capturing problems, it is sufficient to follow this \tbf{variable naming convention}: \tit{bound and free variables must have \underline{different} names between them}.
+
+        From now on, it will be assumed that any $\beta$-reduction is performed by renaming opportunely the \tbf{bound} variables, such that in each step of the computation the naming convention is followed.
+    \end{frameddefn}
+
+\end{document}
