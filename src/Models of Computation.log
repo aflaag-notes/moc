@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.9.22)  4 OCT 2024 10:33
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.9.22)  4 OCT 2024 19:45
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -640,7 +640,7 @@ Package biblatex Info: ... file 'blx-dm.def' found.
 File: blx-dm.def 2023/03/05 v3.19 biblatex localization (PK/MW)
 )
 Package biblatex Info: Trying to load biblatex style data model...
-Package biblatex Info: ... file 'numeric-comp.dbx' not found.
+Package biblatex Info: ... file 'numeric.dbx' not found.
 Package biblatex Info: Trying to load biblatex custom data model...
 Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
 \c@afterword=\count382
@@ -730,6 +730,16 @@ Package biblatex Info: ... file 'blx-compat.def' found.
  (/usr/share/texmf-dist/tex/latex/biblatex/blx-compat.def
 File: blx-compat.def 2023/03/05 v3.19 biblatex compatibility (PK/MW)
 )
+Package biblatex Info: Trying to load BibTeX backend compatibility...
+Package biblatex Info: ... file 'blx-bibtex.def' found.
+ (/usr/share/texmf-dist/tex/latex/biblatex/blx-bibtex.def
+File: blx-bibtex.def 2023/03/05 v3.19 biblatex compatibility (PK/MW)
+
+
+Package biblatex Warning: Using fall-back bibtex backend:
+(biblatex)                functionality may be reduced/unavailable.
+
+)
 Package biblatex Info: Trying to load generic definitions...
 Package biblatex Info: ... file 'biblatex.def' found.
  (/usr/share/texmf-dist/tex/latex/biblatex/biblatex.def
@@ -748,14 +758,9 @@ File: biblatex.def 2023/03/05 v3.19 biblatex compatibility (PK/MW)
 \biburllcskip=\muskip20
 \c@smartand=\count458
 )
-Package biblatex Info: Trying to load bibliography style 'numeric-comp'...
-Package biblatex Info: ... file 'numeric-comp.bbx' found.
- (/usr/share/texmf-dist/tex/latex/biblatex/bbx/numeric-comp.bbx
-File: numeric-comp.bbx 2023/03/05 v3.19 biblatex bibliography style (PK/MW)
 Package biblatex Info: Trying to load bibliography style 'numeric'...
 Package biblatex Info: ... file 'numeric.bbx' found.
-
-(/usr/share/texmf-dist/tex/latex/biblatex/bbx/numeric.bbx
+ (/usr/share/texmf-dist/tex/latex/biblatex/bbx/numeric.bbx
 File: numeric.bbx 2023/03/05 v3.19 biblatex bibliography style (PK/MW)
 Package biblatex Info: Trying to load bibliography style 'standard'...
 Package biblatex Info: ... file 'standard.bbx' found.
@@ -763,15 +768,11 @@ Package biblatex Info: ... file 'standard.bbx' found.
 File: standard.bbx 2023/03/05 v3.19 biblatex bibliography style (PK/MW)
 \c@bbx:relatedcount=\count459
 \c@bbx:relatedtotal=\count460
-)))
-Package biblatex Info: Trying to load citation style 'numeric-comp'...
-Package biblatex Info: ... file 'numeric-comp.cbx' found.
- (/usr/share/texmf-dist/tex/latex/biblatex/cbx/numeric-comp.cbx
-File: numeric-comp.cbx 2023/03/05 v3.19 biblatex citation style (PK/MW)
-\c@cbx@tempcnta=\count461
-\c@cbx@tempcntb=\count462
-\c@cbx@tempcntc=\count463
-\c@cbx@tempcntd=\count464
+))
+Package biblatex Info: Trying to load citation style 'numeric'...
+Package biblatex Info: ... file 'numeric.cbx' found.
+ (/usr/share/texmf-dist/tex/latex/biblatex/cbx/numeric.cbx
+File: numeric.cbx 2023/03/05 v3.19 biblatex citation style (PK/MW)
 Package biblatex Info: Redefining '\cite'.
 Package biblatex Info: Redefining '\parencite'.
 Package biblatex Info: Redefining '\footcite'.
@@ -814,14 +815,14 @@ Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 ) (/usr/share/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2022/04/08 v2.04 operator names
 )
-\inf@bad=\count465
+\inf@bad=\count461
 LaTeX Info: Redefining \frac on input line 234.
-\uproot@=\count466
-\leftroot@=\count467
+\uproot@=\count462
+\leftroot@=\count463
 LaTeX Info: Redefining \overline on input line 399.
 LaTeX Info: Redefining \colon on input line 410.
-\classnum@=\count468
-\DOTSCASE@=\count469
+\classnum@=\count464
+\DOTSCASE@=\count465
 LaTeX Info: Redefining \ldots on input line 496.
 LaTeX Info: Redefining \dots on input line 499.
 LaTeX Info: Redefining \cdots on input line 620.
@@ -834,20 +835,20 @@ LaTeX Info: Redefining \Bigg on input line 725.
 \big@size=\dimen274
 LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
-\macc@depth=\count470
+\macc@depth=\count466
 LaTeX Info: Redefining \bmod on input line 905.
 LaTeX Info: Redefining \pmod on input line 910.
 LaTeX Info: Redefining \smash on input line 940.
 LaTeX Info: Redefining \relbar on input line 970.
 LaTeX Info: Redefining \Relbar on input line 971.
-\c@MaxMatrixCols=\count471
+\c@MaxMatrixCols=\count467
 \dotsspace@=\muskip21
-\c@parentequation=\count472
-\dspbrk@lvl=\count473
+\c@parentequation=\count468
+\dspbrk@lvl=\count469
 \tag@help=\toks44
-\row@=\count474
-\column@=\count475
-\maxfields@=\count476
+\row@=\count470
+\column@=\count471
+\maxfields@=\count472
 \andhelp@=\toks45
 \eqnshift@=\dimen275
 \alignsep@=\dimen276
@@ -908,24 +909,24 @@ Package: array 2023/10/16 v2.5g Tabular extension package (FMi)
 \backup@length=\skip158
 \ar@cellbox=\box88
 )
-\g__nicematrix_env_int=\count477
-\g__nicematrix_NiceMatrixBlock_int=\count478
-\g__nicematrix_notes_caption_int=\count479
+\g__nicematrix_env_int=\count473
+\g__nicematrix_NiceMatrixBlock_int=\count474
+\g__nicematrix_notes_caption_int=\count475
 \l__nicematrix_columns_width_dim=\dimen283
 \l__nicematrix_col_width_dim=\dimen284
-\g__nicematrix_row_total_int=\count480
-\g__nicematrix_col_total_int=\count481
-\g__nicematrix_last_row_node_int=\count482
-\l__nicematrix_key_nb_rows_int=\count483
+\g__nicematrix_row_total_int=\count476
+\g__nicematrix_col_total_int=\count477
+\g__nicematrix_last_row_node_int=\count478
+\l__nicematrix_key_nb_rows_int=\count479
 \g__nicematrix_blocks_wd_dim=\dimen285
 \g__nicematrix_blocks_ht_dim=\dimen286
 \g__nicematrix_blocks_dp_dim=\dimen287
 \l__nicematrix_width_dim=\dimen288
 \l__nicematrix_tabular_width_dim=\dimen289
 \l__nicematrix_rule_width_dim=\dimen290
-\l__nicematrix_old_iRow_int=\count484
-\l__nicematrix_old_jCol_int=\count485
-\g__nicematrix_total_X_weight_int=\count486
+\l__nicematrix_old_iRow_int=\count480
+\l__nicematrix_old_jCol_int=\count481
+\g__nicematrix_total_X_weight_int=\count482
 \l__nicematrix_X_columns_dim=\dimen291
 \l__nicematrix_x_initial_dim=\dimen292
 \l__nicematrix_y_initial_dim=\dimen293
@@ -935,29 +936,29 @@ Package: array 2023/10/16 v2.5g Tabular extension package (FMi)
 \l__nicematrix_tmpd_dim=\dimen297
 \g__nicematrix_width_last_col_dim=\dimen298
 \g__nicematrix_width_first_col_dim=\dimen299
-\l__nicematrix_row_min_int=\count487
-\l__nicematrix_row_max_int=\count488
-\l__nicematrix_col_min_int=\count489
-\l__nicematrix_col_max_int=\count490
-\l__nicematrix_start_int=\count491
-\l__nicematrix_end_int=\count492
-\l__nicematrix_local_start_int=\count493
-\l__nicematrix_local_end_int=\count494
-\g__nicematrix_static_num_of_col_int=\count495
+\l__nicematrix_row_min_int=\count483
+\l__nicematrix_row_max_int=\count484
+\l__nicematrix_col_min_int=\count485
+\l__nicematrix_col_max_int=\count486
+\l__nicematrix_start_int=\count487
+\l__nicematrix_end_int=\count488
+\l__nicematrix_local_start_int=\count489
+\l__nicematrix_local_end_int=\count490
+\g__nicematrix_static_num_of_col_int=\count491
 \l__nicematrix_rounded_corners_dim=\dimen300
 \l__nicematrix_tab_rounded_corners_dim=\dimen301
 \l__nicematrix_offset_dim=\dimen302
 \l__nicematrix_line_width_dim=\dimen303
-\g__nicematrix_block_box_int=\count496
+\g__nicematrix_block_box_int=\count492
 \l__nicematrix_submatrix_extra_height_dim=\dimen304
 \l__nicematrix_submatrix_left_xshift_dim=\dimen305
 \l__nicematrix_submatrix_right_xshift_dim=\dimen306
-\l__nicematrix_first_row_int=\count497
-\l__nicematrix_first_col_int=\count498
-\l__nicematrix_last_row_int=\count499
-\l__nicematrix_last_col_int=\count500
-\c@tabularnote=\count501
-\c@nicematrix_draft=\count502
+\l__nicematrix_first_row_int=\count493
+\l__nicematrix_first_col_int=\count494
+\l__nicematrix_last_row_int=\count495
+\l__nicematrix_last_col_int=\count496
+\c@tabularnote=\count497
+\c@nicematrix_draft=\count498
 \l__nicematrix_cell_space_top_limit_dim=\dimen307
 \l__nicematrix_cell_space_bottom_limit_dim=\dimen308
 \l__nicematrix_xdots_inter_dim=\dimen309
@@ -970,8 +971,8 @@ Package: array 2023/10/16 v2.5g Tabular extension package (FMi)
 \l__nicematrix_extra_left_margin_dim=\dimen316
 \l__nicematrix_extra_right_margin_dim=\dimen317
 \c__nicematrix_max_l_dim=\dimen318
-\l__nicematrix_position_int=\count503
-\l__nicematrix_multiplicity_int=\count504
+\l__nicematrix_position_int=\count499
+\l__nicematrix_multiplicity_int=\count500
 \l__nicematrix_brace_yshift_dim=\dimen319
 ) (/usr/share/texmf-dist/tex/latex/stmaryrd/stmaryrd.sty
 Package: stmaryrd 1994/03/03 St Mary's Road symbol package
@@ -982,20 +983,20 @@ LaTeX Font Info:    Overwriting symbol font `stmry' in version `bold'
 Package: mathtools 2024/03/11 v1.30 mathematical typesetting tools
  (/usr/share/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2023/07/08 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count505
-\calc@Bcount=\count506
+\calc@Acount=\count501
+\calc@Bcount=\count502
 \calc@Adimen=\dimen320
 \calc@Bdimen=\dimen321
 \calc@Askip=\skip159
 \calc@Bskip=\skip160
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count507
+\calc@Ccount=\count503
 \calc@Cskip=\skip161
 ) (/usr/share/texmf-dist/tex/latex/mathtools/mhsetup.sty
 Package: mhsetup 2021/03/18 v1.4 programming setup (MH)
 )
-\g_MT_multlinerow_int=\count508
+\g_MT_multlinerow_int=\count504
 \l_MT_multwidth_dim=\dimen322
 \origjot=\skip162
 \l_MT_shortvdotswithinadjustabove_dim=\dimen323
@@ -1018,20 +1019,20 @@ Package: pgfplots 2021/05/15 v1.18.1 Data Visualization (1.18.1)
 \t@pgfplots@tokb=\toks56
 \t@pgfplots@tokc=\toks57
 \pgfplots@tmpa=\dimen330
-\c@pgfplots@coordindex=\count509
-\c@pgfplots@scanlineindex=\count510
+\c@pgfplots@coordindex=\count505
+\c@pgfplots@scanlineindex=\count506
  (/usr/share/texmf-dist/tex/generic/pgfplots/sys/pgfplotssysgeneric.code.tex)) (/usr/share/texmf-dist/tex/generic/pgfplots/libs/pgfplotslibrary.code.tex) (/usr/share/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsupp_loader.code.tex (/usr/share/texmf-dist/tex/generic/pgf/libraries/pgflibraryfpu.code.tex)
 Package pgfplots: loading complementary utilities for your pgf version...
 \t@pgf@toka=\toks58
 \t@pgf@tokb=\toks59
 \t@pgf@tokc=\toks60
 (/usr/share/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsupp_pgfutil-common-lists.tex)) (/usr/share/texmf-dist/tex/generic/pgfplots/util/pgfplotsutil.code.tex (/usr/share/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsliststructure.code.tex) (/usr/share/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsliststructureext.code.tex) (/usr/share/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsarray.code.tex
-\c@pgfplotsarray@tmp=\count511
+\c@pgfplotsarray@tmp=\count507
 ) (/usr/share/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsmatrix.code.tex) (/usr/share/texmf-dist/tex/generic/pgfplots/numtable/pgfplotstableshared.code.tex
-\c@pgfplotstable@counta=\count512
+\c@pgfplotstable@counta=\count508
 \t@pgfplotstable@a=\toks61
 ) (/usr/share/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsdeque.code.tex) (/usr/share/texmf-dist/tex/generic/pgfplots/util/pgfplotsbinary.code.tex (/usr/share/texmf-dist/tex/generic/pgfplots/util/pgfplotsbinary.data.code.tex)) (/usr/share/texmf-dist/tex/generic/pgfplots/util/pgfplotsutil.verb.code.tex) (/usr/share/texmf-dist/tex/generic/pgfplots/libs/pgflibrarypgfplots.surfshading.code.tex
-\c@pgfplotslibrarysurf@no=\count513
+\c@pgfplotslibrarysurf@no=\count509
  (/usr/share/texmf-dist/tex/generic/pgfplots/sys/pgflibrarypgfplots.surfshading.pgfsys-pdftex.def))) (/usr/share/texmf-dist/tex/generic/pgfplots/util/pgfplotscolormap.code.tex (/usr/share/texmf-dist/tex/generic/pgfplots/util/pgfplotscolor.code.tex)) (/usr/share/texmf-dist/tex/generic/pgfplots/pgfplotsstackedplots.code.tex) (/usr/share/texmf-dist/tex/generic/pgfplots/pgfplotsplothandlers.code.tex (/usr/share/texmf-dist/tex/generic/pgfplots/pgfplotsmeshplothandler.code.tex (/usr/share/texmf-dist/tex/generic/pgfplots/pgfplotsmeshplotimage.code.tex))) (/usr/share/texmf-dist/tex/generic/pgfplots/pgfplots.scaling.code.tex) (/usr/share/texmf-dist/tex/generic/pgfplots/pgfplotscoordprocessing.code.tex) (/usr/share/texmf-dist/tex/generic/pgfplots/pgfplots.errorbars.code.tex) (/usr/share/texmf-dist/tex/generic/pgfplots/pgfplots.markers.code.tex) (/usr/share/texmf-dist/tex/generic/pgfplots/pgfplotsticks.code.tex) (/usr/share/texmf-dist/tex/generic/pgfplots/pgfplots.paths.code.tex)
 (/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.code.tex (/usr/share/texmf-dist/tex/generic/pgf/modules/pgfmoduledecorations.code.tex
 \pgfdecoratedcompleteddistance=\dimen331
@@ -1039,13 +1040,13 @@ Package pgfplots: loading complementary utilities for your pgf version...
 \pgfdecoratedinputsegmentcompleteddistance=\dimen333
 \pgfdecoratedinputsegmentremainingdistance=\dimen334
 \pgf@decorate@distancetomove=\dimen335
-\pgf@decorate@repeatstate=\count514
+\pgf@decorate@repeatstate=\count510
 \pgfdecorationsegmentamplitude=\dimen336
 \pgfdecorationsegmentlength=\dimen337
 )
 \tikz@lib@dec@box=\box90
 ) (/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.pathmorphing.code.tex (/usr/share/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.pathmorphing.code.tex)) (/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.pathreplacing.code.tex (/usr/share/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.pathreplacing.code.tex)) (/usr/share/texmf-dist/tex/generic/pgfplots/libs/tikzlibrarypgfplots.contourlua.code.tex)
-\pgfplots@numplots=\count515
+\pgfplots@numplots=\count511
 \pgfplots@xmin@reg=\dimen338
 \pgfplots@xmax@reg=\dimen339
 \pgfplots@ymin@reg=\dimen340
@@ -1059,28 +1060,28 @@ File: pgflibraryplotmarks.code.tex 2023-01-15 v3.1.10 (3.1.10)
 ))) (/usr/share/texmf-dist/tex/latex/multirow/multirow.sty
 Package: multirow 2021/03/15 v2.8 Span multiple rows of a table
 \multirow@colwidth=\skip163
-\multirow@cntb=\count516
+\multirow@cntb=\count512
 \multirow@dima=\skip164
 \bigstrutjot=\dimen344
 ) (/usr/share/texmf-dist/tex/latex/algorithms/algorithm.sty
 Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating environment
 \@float@every@algorithm=\toks62
-\c@algorithm=\count517
+\c@algorithm=\count513
 ) (/usr/share/texmf-dist/tex/latex/algorithmicx/algpseudocode.sty
 Package: algpseudocode 
  (/usr/share/texmf-dist/tex/latex/algorithmicx/algorithmicx.sty
 Package: algorithmicx 2005/04/27 v1.2 Algorithmicx
 
 Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
-\c@ALG@line=\count518
-\c@ALG@rem=\count519
-\c@ALG@nested=\count520
+\c@ALG@line=\count514
+\c@ALG@rem=\count515
+\c@ALG@nested=\count516
 \ALG@tlm=\skip165
 \ALG@thistlm=\skip166
-\c@ALG@Lnr=\count521
-\c@ALG@blocknr=\count522
-\c@ALG@storecount=\count523
-\c@ALG@tmpcounter=\count524
+\c@ALG@Lnr=\count517
+\c@ALG@blocknr=\count518
+\c@ALG@storecount=\count519
+\c@ALG@tmpcounter=\count520
 \ALG@tmplength=\skip167
 )
 Document Style - pseudocode environments for use with the `algorithmicx' style
@@ -1088,18 +1089,18 @@ Document Style - pseudocode environments for use with the `algorithmicx' style
 Package: fp 1995/04/02
  `Fixed Point Package', Version 0.8, April 2, 1995 (C) Michael Mehlich (/usr/share/texmf-dist/tex/latex/fp/defpattern.sty
 Package: defpattern 1994/10/12
-\actioncount=\count525
+\actioncount=\count521
 ) (/usr/share/texmf-dist/tex/latex/fp/fp-basic.sty
 Package: fp-basic 1996/05/13
-\FP@xs=\count526
-\FP@xia=\count527
-\FP@xib=\count528
-\FP@xfa=\count529
-\FP@xfb=\count530
-\FP@rega=\count531
-\FP@regb=\count532
-\FP@regs=\count533
-\FP@times=\count534
+\FP@xs=\count522
+\FP@xia=\count523
+\FP@xib=\count524
+\FP@xfa=\count525
+\FP@xfb=\count526
+\FP@rega=\count527
+\FP@regb=\count528
+\FP@regs=\count529
+\FP@times=\count530
 ) (/usr/share/texmf-dist/tex/latex/fp/fp-addons.sty
 Package: fp-addons 1995/03/15
 ) (/usr/share/texmf-dist/tex/latex/fp/fp-snap.sty
@@ -1112,7 +1113,7 @@ Package: fp-trigo 1995/04/14
 Package: fp-pas 1994/08/29
 ) (/usr/share/texmf-dist/tex/latex/fp/fp-random.sty
 Package: fp-random 1995/02/23
-\FPseed=\count535
+\FPseed=\count531
 ) (/usr/share/texmf-dist/tex/latex/fp/fp-eqn.sty
 Package: fp-eqn 1995/04/03
 ) (/usr/share/texmf-dist/tex/latex/fp/fp-upn.sty
@@ -1122,8 +1123,8 @@ Package: fp-eval 1995/04/03
 )) (/usr/share/texmf-dist/tex/latex/karnaugh-map/karnaugh-map.sty
 Package: karnaugh-map 2022/01/15 v2.0 Draw Karnaugh Maps
  (/usr/share/texmf-dist/tex/generic/xstring/xstring.sty (/usr/share/texmf-dist/tex/generic/xstring/xstring.tex
-\xs_counta=\count536
-\xs_countb=\count537
+\xs_counta=\count532
+\xs_countb=\count533
 )
 Package: xstring 2023/08/22 v1.86 String manipulations (CT)
 ) (/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarycalc.code.tex
@@ -1131,8 +1132,8 @@ File: tikzlibrarycalc.code.tex 2023-01-15 v3.1.10 (3.1.10)
 ) (/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarymatrix.code.tex
 File: tikzlibrarymatrix.code.tex 2023-01-15 v3.1.10 (3.1.10)
 )
-\@karnaughmap@var@colorindex@=\count538
-\@karnaughmap@var@colorindexnext@=\count539
+\@karnaughmap@var@colorindex@=\count534
+\@karnaughmap@var@colorindexnext@=\count535
 ) (/usr/share/texmf-dist/tex/latex/circuitikz/circuitikz.sty
 Package: circuitikz 2024/02/09{} The CircuiTikz circuit drawing package version 1.6.7
  (/usr/share/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.meta.code.tex
@@ -1158,9 +1159,9 @@ File: pgflibrarycurvilinear.code.tex 2023-01-15 v3.1.10 (3.1.10)
 )
 \pgf@arrows@the@rigidity=\dimen355
 )) (/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryfpu.code.tex) (/usr/share/texmf-dist/tex/generic/circuitikz/pgfcirc.defines.tex
-\pgf@circ@count@a=\count540
-\pgf@circ@count@b=\count541
-\pgf@circ@count@c=\count542
+\pgf@circ@count@a=\count536
+\pgf@circ@count@b=\count537
+\pgf@circ@count@c=\count538
 \pgf@circ@res@up=\dimen356
 \pgf@circ@res@down=\dimen357
 \pgf@circ@res@zero=\dimen358
@@ -1176,7 +1177,7 @@ File: pgflibrarycurvilinear.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \ctikz@scratchbox=\box91
 ) (/usr/share/texmf-dist/tex/generic/circuitikz/pgfcircpath.tex) (/usr/share/texmf-dist/tex/generic/circuitikz/pgfcircshapes.tex) (/usr/share/texmf-dist/tex/generic/circuitikz/pgfcircmonopoles.tex) (/usr/share/texmf-dist/tex/generic/circuitikz/pgfcircbipoles.tex)
 (/usr/share/texmf-dist/tex/generic/circuitikz/pgfcirctripoles.tex
-\pgf@circ@res@count=\count543
+\pgf@circ@res@count=\count539
 ) (/usr/share/texmf-dist/tex/generic/circuitikz/pgfcircquadpoles.tex) (/usr/share/texmf-dist/tex/generic/circuitikz/pgfcircmultipoles.tex) (/usr/share/texmf-dist/tex/generic/circuitikz/pgfcirclabel.tex) (/usr/share/texmf-dist/tex/generic/circuitikz/pgfcircvoltage.tex
 \pgfcirc@labelshift=\dimen367
 ) (/usr/share/texmf-dist/tex/generic/circuitikz/pgfcirccurrent.tex) (/usr/share/texmf-dist/tex/generic/circuitikz/pgfcircflow.tex)) (/usr/share/texmf-dist/tex/generic/ulem/ulem.sty
@@ -1185,7 +1186,7 @@ File: pgflibrarycurvilinear.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \UL@skip=\skip168
 \UL@hook=\toks63
 \UL@height=\dimen368
-\UL@pe=\count544
+\UL@pe=\count540
 \UL@pixel=\dimen369
 \ULC@box=\box94
 Package: ulem 2019/11/18
@@ -1199,12 +1200,12 @@ Package: xkeyval 2022/06/16 v2.9 package option processing (HA)
 \XKV@toks=\toks64
 \XKV@tempa@toks=\toks65
 )
-\XKV@depth=\count545
+\XKV@depth=\count541
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 )) (/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarypositioning.code.tex
 File: tikzlibrarypositioning.code.tex 2023-01-15 v3.1.10 (3.1.10)
 )
-\c@@todonotes@numberoftodonotes=\count546
+\c@@todonotes@numberoftodonotes=\count542
 ) (/usr/share/texmf-dist/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2024-01-20 v7.01h Hypertext links for LaTeX
  (/usr/share/texmf-dist/tex/generic/pdfescape/pdfescape.sty
@@ -1218,11 +1219,11 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 ) (/usr/share/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count547
+\c@section@level=\count543
 )
 \@linkdim=\dimen371
-\Hy@linkcounter=\count548
-\Hy@pagecounter=\count549
+\Hy@linkcounter=\count544
+\Hy@pagecounter=\count545
  (/usr/share/texmf-dist/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2024-01-20 v7.01h Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
@@ -1230,7 +1231,7 @@ Now handling font encoding PD1 ...
 ) (/usr/share/texmf-dist/tex/generic/intcalc/intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 )
-\Hy@SavedSpaceFactor=\count550
+\Hy@SavedSpaceFactor=\count546
  (/usr/share/texmf-dist/tex/latex/hyperref/puenc.def
 File: puenc.def 2024-01-20 v7.01h Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
@@ -1245,7 +1246,7 @@ Package hyperref Info: Plain pages OFF on input line 4194.
 Package hyperref Info: Backreferencing OFF on input line 4199.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4446.
-\c@Hy@tempcnt=\count551
+\c@Hy@tempcnt=\count547
 LaTeX Info: Redefining \url on input line 4784.
 \XeTeXLinkMargin=\dimen372
  (/usr/share/texmf-dist/tex/generic/bitset/bitset.sty
@@ -1253,7 +1254,7 @@ Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
  (/usr/share/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
 ))
-\Fld@menulength=\count552
+\Fld@menulength=\count548
 \Field@Width=\dimen373
 \Fld@charsize=\dimen374
 Package hyperref Info: Hyper figures OFF on input line 6063.
@@ -1267,9 +1268,9 @@ Package hyperref Info: PDF/A mode OFF on input line 6093.
 Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
 package with kernel methods
 )
-\Hy@abspage=\count553
-\c@Item=\count554
-\c@Hfootnote=\count555
+\Hy@abspage=\count549
+\c@Item=\count550
+\c@Hfootnote=\count551
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
  (/usr/share/texmf-dist/tex/latex/hyperref/hpdftex.def
@@ -1278,9 +1279,9 @@ File: hpdftex.def 2024-01-20 v7.01h Hyperref driver for pdfTeX
 Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend package
 with kernel methods
 )
-\HyAnn@Count=\count556
-\Fld@listcount=\count557
-\c@bookmark@seq@number=\count558
+\HyAnn@Count=\count552
+\Fld@listcount=\count553
+\c@bookmark@seq@number=\count554
  (/usr/share/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
 Package: rerunfilecheck 2022-07-10 v1.10 Rerun checks for auxiliary files (HO)
  (/usr/share/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
@@ -1291,8 +1292,8 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 28
 \Hy@SectionHShift=\skip169
 ) (/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/graphs/tikzlibrarygraphs.code.tex
 File: tikzlibrarygraphs.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\tikz@lib@auto@number=\count559
-\tikz@qnode@count=\count560
+\tikz@lib@auto@number=\count555
+\tikz@qnode@count=\count556
 ) (/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytrees.code.tex
 File: tikzlibrarytrees.code.tex 2023-01-15 v3.1.10 (3.1.10)
 )
@@ -1320,12 +1321,12 @@ Package pdfcol Info: New color stack `tcb@breakable' = 1 on input line 23.
 \tcb@totallowerbox=\box98
 ) (/usr/share/texmf-dist/tex/generic/babel/babel.sty
 Package: babel 2024/02/07 v24.2 The Babel package
-\babel@savecnt=\count561
+\babel@savecnt=\count557
 \U@D=\dimen375
 \l@unhyphenated=\language9
  (/usr/share/texmf-dist/tex/generic/babel/txtbabel.def)
 \bbl@readstream=\read5
-\bbl@dirlevel=\count562
+\bbl@dirlevel=\count558
  (/usr/share/texmf-dist/tex/generic/babel-english/english.ldf
 Language: english 2017/06/06 v3.3r English support from the babel system
 Package babel Info: Hyphen rules for 'canadian' set to \l@english
@@ -1400,18 +1401,18 @@ LaTeX Warning: You have requested package `../../packages/Nyx/nyx-frames',
                but the package provides `nyx-frames'.
 
 Package: nyx-frames Nyx Frames
-\c@tcb@cnt@frameddefn=\count563
-\c@tcb@cnt@framedprinc=\count564
-\c@tcb@cnt@framedthm=\count565
-\c@tcb@cnt@framedprop=\count566
-\c@tcb@cnt@framedlem=\count567
-\c@tcb@cnt@framedcor=\count568
-\c@tcb@cnt@framedobs=\count569
-\c@tcb@cnt@framedprob=\count570
-\c@tcb@cnt@framedmeth=\count571
-\c@tcb@cnt@framedalgo=\count572
-\c@example=\count573
-\c@nonexample=\count574
+\c@tcb@cnt@frameddefn=\count559
+\c@tcb@cnt@framedprinc=\count560
+\c@tcb@cnt@framedthm=\count561
+\c@tcb@cnt@framedprop=\count562
+\c@tcb@cnt@framedlem=\count563
+\c@tcb@cnt@framedcor=\count564
+\c@tcb@cnt@framedobs=\count565
+\c@tcb@cnt@framedprob=\count566
+\c@tcb@cnt@framedmeth=\count567
+\c@tcb@cnt@framedalgo=\count568
+\c@example=\count569
+\c@nonexample=\count570
 ) (../../packages/Nyx/nyx-macros.sty
 
 LaTeX Warning: You have requested package `../../packages/Nyx/nyx-macros',
@@ -1452,16 +1453,16 @@ LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 75.
 LaTeX Font Info:    ... okay on input line 75.
  (/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count575
+\scratchcounter=\count571
 \scratchdimen=\dimen377
 \scratchbox=\box119
-\nofMPsegments=\count576
-\nofMParguments=\count577
+\nofMPsegments=\count572
+\nofMParguments=\count573
 \everyMPshowfont=\toks66
-\MPscratchCnt=\count578
+\MPscratchCnt=\count574
 \MPscratchDim=\dimen378
-\MPnumerator=\count579
-\makeMPintoPDFobject=\count580
+\MPnumerator=\count575
+\makeMPintoPDFobject=\count576
 \everyMPtoPDFconversion=\toks67
 ) (/usr/share/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -1469,7 +1470,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
  (/usr/share/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-\c@lstlisting=\count581
+\c@lstlisting=\count577
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1513,21 +1514,24 @@ File: english.lbx 2023/03/05 v3.19 biblatex localization (PK/MW)
 Package biblatex Info: Input encoding 'utf8' detected.
 Package biblatex Info: Automatic encoding selection.
 (biblatex)             Assuming data encoding 'utf8'.
-\openout4 = `"Models of Computation.bcf"'.
+Package biblatex Info: Input encoding 'utf8' detected.
+Package biblatex Info: Data encoding 'utf8' specified.
+(biblatex)             No need to reencode data.
+\openout4 = `Models_of_Computation-blx.bib'.
 
 Package biblatex Info: Trying to load bibliographic data...
-Package biblatex Info: ... file '"Models of Computation".bbl' not found.
-
-No file "Models of Computation".bbl.
+Package biblatex Info: ... file '"Models of Computation".bbl' found.
+ (./Models of Computation.bbl)
 Package biblatex Info: Reference section=0 on input line 75.
 Package biblatex Info: Reference segment=0 on input line 75.
 \c__nicematrix_shift_Ldots_last_row_dim=\dimen379
 \c__nicematrix_shift_exterior_Vdots_dim=\dimen380
 \c__nicematrix_innersep_middle_dim=\dimen381
-\c@tabularnotesi=\count582
-\enitdp@tabularnotes=\count583
-\c@tabularnotes*i=\count584
-\enitdp@tabularnotes*=\count585
+\c@tabularnotesi=\count578
+\enitdp@tabularnotes=\count579
+\c@tabularnotes*i=\count580
+\enitdp@tabularnotes*=\count581
+
 
 Package pgfplots Warning: running in backwards compatibility mode (unsuitable tick labels; missing features). Consider writing \pgfplotsset{compat=1.18} into your preamble.
  on input line 75.
@@ -1716,7 +1720,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 Package cleveref Info: loaded `english' language definitions on input line 253.
 [7]
-Package cleveref Info: loaded `english' language definitions on input line 275.
+Package cleveref Info: loaded `english' language definitions on input line 290.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1725,9 +1729,20 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-Package cleveref Info: loaded `english' language definitions on input line 275.
-[8] (./Models of Computation.aux
-Package cleveref Info: loaded `english' language definitions on input line 9.
+Package cleveref Info: loaded `english' language definitions on input line 290.
+[8]
+Package cleveref Info: loaded `english' language definitions on input line 292.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+Package cleveref Info: loaded `english' language definitions on input line 292.
+[9] (./Models of Computation.aux
+Package cleveref Info: loaded `english' language definitions on input line 12.
 )
  ***********
 LaTeX2e <2023-11-01> patch level 1
@@ -1745,18 +1760,18 @@ Package logreq Info: Writing requests to '"Models of Computation".run.xml'.
  )
 (\end occurred when \ifx on line 39 was incomplete) 
 Here is how much of TeX's memory you used:
- 73500 strings out of 476024
- 1800846 string characters out of 5792396
- 3045395 words of memory out of 5000000
- 94615 multiletter control sequences out of 15000+600000
+ 73531 strings out of 476024
+ 1801064 string characters out of 5792396
+ 3005431 words of memory out of 5000000
+ 94641 multiletter control sequences out of 15000+600000
  583496 words of font info for 93 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  119i,21n,123p,2001b,2231s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/tex-gyre/qtmr.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx2488.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfcc1440.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfcc1728.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfcc2074.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm0600.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfti1440.pfb>
-Output written on "Models of Computation.pdf" (10 pages, 351731 bytes).
+Output written on "Models of Computation.pdf" (11 pages, 353691 bytes).
 PDF statistics:
- 239 PDF objects out of 1000 (max. 8388607)
- 181 compressed objects within 2 object streams
- 40 named destinations out of 1000 (max. 500000)
+ 244 PDF objects out of 1000 (max. 8388607)
+ 185 compressed objects within 2 object streams
+ 42 named destinations out of 1000 (max. 500000)
  64 words of extra memory for PDF output out of 10000 (max. 10000000)
 

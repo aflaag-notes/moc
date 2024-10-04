@@ -253,15 +253,32 @@
         \end{equation*}
     \end{proof}
 
-    Note that the $\mathrm Y$ combinator can be used to perform \tit{recursion} inside $\lambda$-calculus, because of the following property: $$\centeredsoe{h(\mathrm Y h) = \mathrm Y h \\ h(h(\mathrm Y h)) = h(\mathrm Y h) = \mathrm Y h \\ \vdots \\ h (\ldots (h(\mathrm Y h))) = \mathrm Y h}$$ \todo{finish this paragraph}
+    Note that the $\mathrm Y$ combinator can be used to perform \tit{recursion} inside $\lambda$-calculus, because of the following property: $$\centeredsoe{h(\mathrm Y h) = \mathrm Y h \\ h(h(\mathrm Y h)) = h(\mathrm Y h) = \mathrm Y h \\ \vdots \\ h (\ldots (h(\mathrm Y h))) = \mathrm Y h}$$ \todo{should i go deeper?}
+
+    % Note that a \curlyquotes{recursive function} in $\lambda$-caluclus has to take the previous case as input. For instance, consider the following function $$h := $$
 
     \section{Exercises}
 
+    \begin{framedprob}{Solve for $X$}
+        Find $X$ such that $$Xx = \lambda t.t (Xx)$$
+    \end{framedprob}
+    
+    \solution{
+        The term is $$X \equiv (\lambda fbt. t(fb)) X$$ because
+        \begin{equation*}
+            \begin{split}
+                Xx &\betaconv (\lambda fbt .t(fb)) X x \\
+                   &\betaconv (\lambda bt. t(Xb)) x \\
+                   &\betaconv \lambda t.t(Xx)
+            \end{split}
+        \end{equation*}
+    }
+    
     \begin{framedprob}{Solve for $H$}
         Find $H$ such that $$H (\lambda x_1 x_2 x_3.P) = \lambda x_3 x_2 x_1 . P$$
     \end{framedprob}
 
-    \begin{proof}[Solution]
+    \solution{
         The term is $$H \equiv \lambda f x_3 x_2 x_1 . f x_1 x_2 x_3$$ because
         \begin{equation*}
             \begin{split}
@@ -270,6 +287,6 @@
                                                   &\betaconv \lambda x_3 x_2 x_1 .P
             \end{split}
         \end{equation*}
-    \end{proof}
+    }
 
 \end{document}
