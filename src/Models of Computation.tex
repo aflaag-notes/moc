@@ -97,10 +97,8 @@
     \section{TODO}
 
     \subsection{TODO}
-
-    TODO beginning paragraph
-
-    In this first section, examples will be omitted from this notes, refer to the notes of the \curlyquotes{\href{https://github.com/aflaag-notes/languages}{Linguaggi di Programmazione}} course for further details.
+ 
+    In this first section, examples will be omitted from this notes, refer to the notes of the \curlyquotes{\href{https://github.com/aflaag-notes/languages}{Linguaggi di Programmazione}} course for further details. \todo{this notes are WIP, sections WILL change}
 
     \begin{frameddefn}[breakable]{Lambda calculus}
         Let $\mathrm{Var}$ be the set of all possible variables; thus, the \tbf{set $\Lambda$ of all possible $\lambda$-terms} is defined by the following rules:
@@ -133,11 +131,17 @@
 
     \begin{frameddefn}{Notable combinators}
         The following are some of the \tbf{notable combinators}:
-        \begin{gather*}
-            \mathrm I \equiv \lambda x.x \\
-            \mathrm K \equiv \lambda xy.x \\
-            \mathrm S \equiv \lambda xyz.xz(yz)
-        \end{gather*}
+        \begin{equation*}
+            \begin{split}
+                \mathrm I &\equiv \lambda x.x \\
+                \mathrm K &\equiv T \equiv \lambda xy.x \\
+                \mathrm O &\equiv F \equiv \lambda xy.y \\
+                \mathrm S &\equiv \lambda xyz.xz(yz) \\
+                \mathrm B &\equiv \lambda fgx.f(gx) \\
+                \mathrm C &\equiv \lambda abc.acb \\
+                \mathrm W &\equiv \lambda xy.xyy
+            \end{split}
+        \end{equation*}
     \end{frameddefn}
 
     \begin{frameddefn}{Free variables}
@@ -191,5 +195,81 @@
 
         From now on, it will be assumed that any $\beta$-reduction is performed by renaming opportunely the \tbf{bound} variables, such that in each step of the computation the naming convention is followed.
     \end{frameddefn}
+
+    \begin{frameddefn}{Tuples}
+        A \tbf{tuple} of the form $$(M_1, \ldots, M_k)$$ can be represented in $\lambda$-calculus as follows: $$\lambda x.xM_1 \ldots M_k$$
+    \end{frameddefn}
+
+    To access the elements of a tuple, \tit{projectors} are used, which are defined below
+
+    \begin{frameddefn}{Projector}
+        A \tbf{projector} has the following form $$\lambda x.x\pi_j^k$$ where $$\pi_j^k \equiv \lambda x_1 \ldots x_k.x_j$$
+    \end{frameddefn}
+
+    \begin{example}[Projectors]
+        Given a tuple $\lambda x.x M_1 \ldots M_k$, its $j$-th element can be accessed as follows: $$\lambda x.x \pi_j^k (\lambda x.x M_1 \ldots M_k) \betaconv (\lambda x.x M_1 \ldots M_k) \pi_j^k \betaconv \pi_j^k M_1 \ldots M_k \betaconv M_j$$
+    \end{example}
+
+    \begin{frameddefn}{Fixed point}
+        Given a function $\func{f}{X}{Y}$, an element $x \in X$ is said to be a \tbf{fixed point of $f$} if and only if $f(x) = x$.
+    \end{frameddefn}
+
+    \begin{example}[Fixed points]
+        Given a function $f(x) = x^2 - 3x + 4$, $x = 2$ is a \tit{fixed point} of $f$, because $$f(x) = 2^2 - 3 \cdot 2 + 4 = 4 - 6 + 4 = 2 = x$$ and thus $f(x) = x$.
+    \end{example}
+
+    \begin{example}[Functions are fixed points]
+        Consider the following function $$F(g) :\equiv h(x) = \soe{ll}{1 & x = 0 \\ x \cdot g(x - 1) & x > 0}$$ that takes a function as input, an returns a function $h$; for instance, plugging in the following function $$\func{\succfn}{x}{x + 1}$$ we get that $F$ returns the following function $$F(\succfn) \equiv h(x) = \soe{ll}{1 & x = 0 \\ x \cdot \succfn(x - 1) = x \cdot x = x^2 & x > 0}$$ which is the function that returns $1$ if $x = 0$, and $x^2$ otherwise.
+
+        It's easy to check that the \tit{fixed point} of $F$ is the following function: $$\mathrm{fact}(x) := \soe{ll}{1 & x = 0 \\ x \cdot \mathrm{fact}(x - 1) & x > 0}$$ which computes the factorial of $x$, because $$F(\mathrm{fact}) \equiv h(x) = \soe{ll}{1 & x = 0 \\ x \cdot \mathrm{fact}(x -1) & x > 0 } \equiv \mathrm{fact}$$
+    \end{example}
+
+    \begin{frameddefn}{Kleene's combinator}
+        The \tbf{fixed point operator}, \tbf{$\mathrm Y$ combinator} or \tbf{Kleene's combinator} (named after \href{https://it.wikipedia.org/wiki/Stephen_Kleene}{Stephen Kleene}) is defined as follows: $$\mathrm Y \equiv \lambda f.(\lambda x.f(xx))(\lambda x.f(xx))$$ The $\mathrm Y$ combinator can be alternatively defined as follows: $$\mathrm Y \equiv (\lambda xy. y(xxy))(\lambda xy.y(xxy))$$
+    \end{frameddefn}
+
+    \begin{framedprop}{Fixed point operator}
+        Given a function, Kleene's combinator returns its fixed point.
+    \end{framedprop}
+
+    \begin{proof}
+        If the Kleene's combinator can return the fixed point of a given function $h$, it means that $\mathrm Y h$ is $h$'s fixed point. Therefore, the statement that has to be proved is that $$h (\mathrm Y h) \equiv \mathrm Y h$$ This can be proved for both formulations of the $\mathrm Y$ combinator, as follows:
+        \begin{equation*}
+            \begin{split}
+                \mathrm Y h &\betaconv (\lambda f .(\lambda x.f(xx)) (\lambda x.f(xx))) h \\
+                            &\betaconv (\lambda x.h(xx))(\lambda x.h(xx)) \\
+                            &\betaconv h(\lambda x.h(xx) \lambda x. h(xx)) \\
+                            &\betaconv h (\mathrm Y h)
+            \end{split}
+        \end{equation*}
+        and for the alternative formulation
+        \begin{equation*}
+            \begin{split}
+                \mathrm Y h &\betaconv ((\lambda xy.y(xxy))(\lambda xy'.y'(xxy')))h \\
+                            &\betaconv (\lambda y.y ((\lambda xy'.y'(xxy'))(\lambda xy''.y''(xxy''))y))h \\
+                            &\betaconv h ((\lambda xy'.y'(xxy'))(\lambda xy''.y''(xxy''))h) \\
+                            &\betaconv h(\mathrm Y h)
+            \end{split}
+        \end{equation*}
+    \end{proof}
+
+    Note that the $\mathrm Y$ combinator can be used to perform \tit{recursion} inside $\lambda$-calculus, because of the following property: $$\centeredsoe{h(\mathrm Y h) = \mathrm Y h \\ h(h(\mathrm Y h)) = h(\mathrm Y h) = \mathrm Y h \\ \vdots \\ h (\ldots (h(\mathrm Y h))) = \mathrm Y h}$$ \todo{finish this paragraph}
+
+    \section{Exercises}
+
+    \begin{framedprob}{Solve for $H$}
+        Find $H$ such that $$H (\lambda x_1 x_2 x_3.P) = \lambda x_3 x_2 x_1 . P$$
+    \end{framedprob}
+
+    \begin{proof}[Solution]
+        The term is $$H \equiv \lambda f x_3 x_2 x_1 . f x_1 x_2 x_3$$ because
+        \begin{equation*}
+            \begin{split}
+                H (\lambda x_1 x_2 x_3.P) &\betaconv (\lambda f x_3 x_2 x_1 . f x_1 x_2 x_3) (\lambda x_1 x_2 x_3.P) \\
+                                                  &\betaconv \lambda x_3 x_2 x_1 . (\lambda x_1 x_2 x_3.P) x_1 x_2 x_2 \\
+                                                  &\betaconv \lambda x_3 x_2 x_1 .P
+            \end{split}
+        \end{equation*}
+    \end{proof}
 
 \end{document}

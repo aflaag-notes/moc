@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.9.22)  26 SEP 2024 22:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.9.22)  4 OCT 2024 10:33
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1190,6 +1190,21 @@ File: pgflibrarycurvilinear.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \ULC@box=\box94
 Package: ulem 2019/11/18
 \ULdepth=\dimen370
+) (/usr/share/texmf-dist/tex/latex/todonotes/todonotes.sty
+Package: todonotes 2024/01/05 v1.1.7 Todonotes source and documentation.
+Package: todonotes 2024/01/05
+ (/usr/share/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+Package: xkeyval 2022/06/16 v2.9 package option processing (HA)
+ (/usr/share/texmf-dist/tex/generic/xkeyval/xkeyval.tex (/usr/share/texmf-dist/tex/generic/xkeyval/xkvutils.tex
+\XKV@toks=\toks64
+\XKV@tempa@toks=\toks65
+)
+\XKV@depth=\count545
+File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
+)) (/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarypositioning.code.tex
+File: tikzlibrarypositioning.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)
+\c@@todonotes@numberoftodonotes=\count546
 ) (/usr/share/texmf-dist/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2024-01-20 v7.01h Hypertext links for LaTeX
  (/usr/share/texmf-dist/tex/generic/pdfescape/pdfescape.sty
@@ -1203,11 +1218,11 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 ) (/usr/share/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count545
+\c@section@level=\count547
 )
 \@linkdim=\dimen371
-\Hy@linkcounter=\count546
-\Hy@pagecounter=\count547
+\Hy@linkcounter=\count548
+\Hy@pagecounter=\count549
  (/usr/share/texmf-dist/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2024-01-20 v7.01h Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
@@ -1215,7 +1230,7 @@ Now handling font encoding PD1 ...
 ) (/usr/share/texmf-dist/tex/generic/intcalc/intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 )
-\Hy@SavedSpaceFactor=\count548
+\Hy@SavedSpaceFactor=\count550
  (/usr/share/texmf-dist/tex/latex/hyperref/puenc.def
 File: puenc.def 2024-01-20 v7.01h Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
@@ -1230,7 +1245,7 @@ Package hyperref Info: Plain pages OFF on input line 4194.
 Package hyperref Info: Backreferencing OFF on input line 4199.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4446.
-\c@Hy@tempcnt=\count549
+\c@Hy@tempcnt=\count551
 LaTeX Info: Redefining \url on input line 4784.
 \XeTeXLinkMargin=\dimen372
  (/usr/share/texmf-dist/tex/generic/bitset/bitset.sty
@@ -1238,7 +1253,7 @@ Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
  (/usr/share/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
 ))
-\Fld@menulength=\count550
+\Fld@menulength=\count552
 \Field@Width=\dimen373
 \Fld@charsize=\dimen374
 Package hyperref Info: Hyper figures OFF on input line 6063.
@@ -1252,9 +1267,9 @@ Package hyperref Info: PDF/A mode OFF on input line 6093.
 Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
 package with kernel methods
 )
-\Hy@abspage=\count551
-\c@Item=\count552
-\c@Hfootnote=\count553
+\Hy@abspage=\count553
+\c@Item=\count554
+\c@Hfootnote=\count555
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
  (/usr/share/texmf-dist/tex/latex/hyperref/hpdftex.def
@@ -1263,9 +1278,9 @@ File: hpdftex.def 2024-01-20 v7.01h Hyperref driver for pdfTeX
 Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend package
 with kernel methods
 )
-\HyAnn@Count=\count554
-\Fld@listcount=\count555
-\c@bookmark@seq@number=\count556
+\HyAnn@Count=\count556
+\Fld@listcount=\count557
+\c@bookmark@seq@number=\count558
  (/usr/share/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
 Package: rerunfilecheck 2022-07-10 v1.10 Rerun checks for auxiliary files (HO)
  (/usr/share/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
@@ -1276,11 +1291,12 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 28
 \Hy@SectionHShift=\skip169
 ) (/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/graphs/tikzlibrarygraphs.code.tex
 File: tikzlibrarygraphs.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\tikz@lib@auto@number=\count557
-\tikz@qnode@count=\count558
+\tikz@lib@auto@number=\count559
+\tikz@qnode@count=\count560
 ) (/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytrees.code.tex
 File: tikzlibrarytrees.code.tex 2023-01-15 v3.1.10 (3.1.10)
-) (/usr/share/texmf-dist/tex/latex/tcolorbox/tcbskins.code.tex
+)
+(/usr/share/texmf-dist/tex/latex/tcolorbox/tcbskins.code.tex
 Library (tcolorbox): 'tcbskins.code.tex' version '6.2.0'
 (/usr/share/texmf-dist/tex/latex/tikzfill/tikzfill.image.sty
 Package: tikzfill.image 2023/08/08 v1.0.1 Image filling library for TikZ
@@ -1304,12 +1320,12 @@ Package pdfcol Info: New color stack `tcb@breakable' = 1 on input line 23.
 \tcb@totallowerbox=\box98
 ) (/usr/share/texmf-dist/tex/generic/babel/babel.sty
 Package: babel 2024/02/07 v24.2 The Babel package
-\babel@savecnt=\count559
+\babel@savecnt=\count561
 \U@D=\dimen375
 \l@unhyphenated=\language9
  (/usr/share/texmf-dist/tex/generic/babel/txtbabel.def)
 \bbl@readstream=\read5
-\bbl@dirlevel=\count560
+\bbl@dirlevel=\count562
  (/usr/share/texmf-dist/tex/generic/babel-english/english.ldf
 Language: english 2017/06/06 v3.3r English support from the babel system
 Package babel Info: Hyphen rules for 'canadian' set to \l@english
@@ -1384,18 +1400,18 @@ LaTeX Warning: You have requested package `../../packages/Nyx/nyx-frames',
                but the package provides `nyx-frames'.
 
 Package: nyx-frames Nyx Frames
-\c@tcb@cnt@frameddefn=\count561
-\c@tcb@cnt@framedprinc=\count562
-\c@tcb@cnt@framedthm=\count563
-\c@tcb@cnt@framedprop=\count564
-\c@tcb@cnt@framedlem=\count565
-\c@tcb@cnt@framedcor=\count566
-\c@tcb@cnt@framedobs=\count567
-\c@tcb@cnt@framedprob=\count568
-\c@tcb@cnt@framedmeth=\count569
-\c@tcb@cnt@framedalgo=\count570
-\c@example=\count571
-\c@nonexample=\count572
+\c@tcb@cnt@frameddefn=\count563
+\c@tcb@cnt@framedprinc=\count564
+\c@tcb@cnt@framedthm=\count565
+\c@tcb@cnt@framedprop=\count566
+\c@tcb@cnt@framedlem=\count567
+\c@tcb@cnt@framedcor=\count568
+\c@tcb@cnt@framedobs=\count569
+\c@tcb@cnt@framedprob=\count570
+\c@tcb@cnt@framedmeth=\count571
+\c@tcb@cnt@framedalgo=\count572
+\c@example=\count573
+\c@nonexample=\count574
 ) (../../packages/Nyx/nyx-macros.sty
 
 LaTeX Warning: You have requested package `../../packages/Nyx/nyx-macros',
@@ -1436,24 +1452,24 @@ LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 75.
 LaTeX Font Info:    ... okay on input line 75.
  (/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count573
+\scratchcounter=\count575
 \scratchdimen=\dimen377
 \scratchbox=\box119
-\nofMPsegments=\count574
-\nofMParguments=\count575
-\everyMPshowfont=\toks64
-\MPscratchCnt=\count576
+\nofMPsegments=\count576
+\nofMParguments=\count577
+\everyMPshowfont=\toks66
+\MPscratchCnt=\count578
 \MPscratchDim=\dimen378
-\MPnumerator=\count577
-\makeMPintoPDFobject=\count578
-\everyMPtoPDFconversion=\toks65
+\MPnumerator=\count579
+\makeMPintoPDFobject=\count580
+\everyMPtoPDFconversion=\toks67
 ) (/usr/share/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
  (/usr/share/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-\c@lstlisting=\count579
+\c@lstlisting=\count581
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1508,13 +1524,16 @@ Package biblatex Info: Reference segment=0 on input line 75.
 \c__nicematrix_shift_Ldots_last_row_dim=\dimen379
 \c__nicematrix_shift_exterior_Vdots_dim=\dimen380
 \c__nicematrix_innersep_middle_dim=\dimen381
-\c@tabularnotesi=\count580
-\enitdp@tabularnotes=\count581
-\c@tabularnotes*i=\count582
-\enitdp@tabularnotes*=\count583
+\c@tabularnotesi=\count582
+\enitdp@tabularnotes=\count583
+\c@tabularnotes*i=\count584
+\enitdp@tabularnotes*=\count585
 
 Package pgfplots Warning: running in backwards compatibility mode (unsuitable tick labels; missing features). Consider writing \pgfplotsset{compat=1.18} into your preamble.
  on input line 75.
+
+
+Package todonotes Warning: The length marginparwidth is less than 2cm and will most likely cause issues with the appearance of inserted todonotes. The issue can be solved by adding a line like \setlength {\marginparwidth }{2cm} prior to loading the todonotes package. on input line 75.
 
 Package hyperref Info: Link coloring ON on input line 75.
 (./Models of Computation.out) (./Models of Computation.out)
@@ -1553,7 +1572,7 @@ Package hyperref Info: Link coloring ON on input line 75.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-<../../packages/Nyx/logo.png, id=23, 803.0pt x 301.125pt>
+<../../packages/Nyx/logo.png, id=27, 803.0pt x 301.125pt>
 File: ../../packages/Nyx/logo.png Graphic file (type png)
 <use ../../packages/Nyx/logo.png>
 Package pdftex.def Info: ../../packages/Nyx/logo.png  used on input line 76.
@@ -1634,11 +1653,12 @@ File: t1qtm.fd 2009/09/25 v1.2 font definition file for T1/qtm
 LaTeX Font Warning: Font shape `T1/qtm/n/n' undefined
 (Font)              using `T1/qtm/m/n' instead on input line 95.
 
-Package cleveref Info: loaded `english' language definitions on input line 119.
+Package hyperref Info: bookmark level for unknown todo defaults to 0 on input line 101.
+Package cleveref Info: loaded `english' language definitions on input line 117.
 [2
 
 {/usr/share/texmf-dist/fonts/enc/dvips/tex-gyre/q-ec.enc}]
-Package cleveref Info: loaded `english' language definitions on input line 163.
+Package cleveref Info: loaded `english' language definitions on input line 167.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1647,13 +1667,13 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-Package cleveref Info: loaded `english' language definitions on input line 163.
+Package cleveref Info: loaded `english' language definitions on input line 167.
 [3]
-Overfull \hbox (6.36363pt too wide) in paragraph at lines 184--184
+Overfull \hbox (6.36363pt too wide) in paragraph at lines 188--188
 \T1/cmr/m/n/12 therefore $\OML/cmm/m/it/12 y$ \T1/cmr/m/n/12 was \T1/cmr/bx/n/12 cap-tured \T1/cmr/m/n/12 by the $\OML/cmm/m/it/12 y$ \T1/cmr/m/n/12 that was al-ready present in the left-most $\OML/cmm/m/it/12 ^^U$\T1/cmr/m/n/12 -abstraction.
  []
 
-Package cleveref Info: loaded `english' language definitions on input line 186.
+Package cleveref Info: loaded `english' language definitions on input line 190.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1661,9 +1681,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-Package cleveref Info: loaded `english' language definitions on input line 186.
+Package cleveref Info: loaded `english' language definitions on input line 190.
 [4]
-Package cleveref Info: loaded `english' language definitions on input line 194.
+Package cleveref Info: loaded `english' language definitions on input line 198.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1672,9 +1692,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-Package cleveref Info: loaded `english' language definitions on input line 194.
+Package cleveref Info: loaded `english' language definitions on input line 198.
 [5]
-Package cleveref Info: loaded `english' language definitions on input line 195.
+Package cleveref Info: loaded `english' language definitions on input line 222.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1683,8 +1703,30 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-Package cleveref Info: loaded `english' language definitions on input line 195.
-[6] (./Models of Computation.aux
+Package cleveref Info: loaded `english' language definitions on input line 222.
+[6]
+Package cleveref Info: loaded `english' language definitions on input line 253.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+Package cleveref Info: loaded `english' language definitions on input line 253.
+[7]
+Package cleveref Info: loaded `english' language definitions on input line 275.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+Package cleveref Info: loaded `english' language definitions on input line 275.
+[8] (./Models of Computation.aux
 Package cleveref Info: loaded `english' language definitions on input line 9.
 )
  ***********
@@ -1696,24 +1738,25 @@ L3 programming layer <2024-02-20>
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `"Models of Computation".out' has not changed.
-(rerunfilecheck)             Checksum: EAD9B07CFFB633C6E100621C4614D8D8;388.
+(rerunfilecheck)             Checksum: 3F1B2F0E29DEED684EBB84C1546EDF78;487.
 Package logreq Info: Writing requests to '"Models of Computation".run.xml'.
 \openout1 = `"Models of Computation.run.xml"'.
 
- ) 
+ )
+(\end occurred when \ifx on line 39 was incomplete) 
 Here is how much of TeX's memory you used:
- 72888 strings out of 476024
- 1787977 string characters out of 5792396
- 3032305 words of memory out of 5000000
- 94035 multiletter control sequences out of 15000+600000
- 582730 words of font info for 92 fonts, out of 8000000 for 9000
+ 73500 strings out of 476024
+ 1800846 string characters out of 5792396
+ 3045395 words of memory out of 5000000
+ 94615 multiletter control sequences out of 15000+600000
+ 583496 words of font info for 93 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 119i,18n,123p,2001b,2231s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/tex-gyre/qtmr.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx2488.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfcc1440.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfcc1728.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfcc2074.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfti1440.pfb>
-Output written on "Models of Computation.pdf" (8 pages, 302895 bytes).
+ 119i,21n,123p,2001b,2231s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/tex-gyre/qtmr.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx2488.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfcc1440.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfcc1728.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfcc2074.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm0600.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfti1440.pfb>
+Output written on "Models of Computation.pdf" (10 pages, 351731 bytes).
 PDF statistics:
- 204 PDF objects out of 1000 (max. 8388607)
- 150 compressed objects within 2 object streams
- 26 named destinations out of 1000 (max. 500000)
- 56 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 239 PDF objects out of 1000 (max. 8388607)
+ 181 compressed objects within 2 object streams
+ 40 named destinations out of 1000 (max. 500000)
+ 64 words of extra memory for PDF output out of 10000 (max. 10000000)
 
