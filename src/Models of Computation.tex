@@ -242,16 +242,56 @@
     \end{framedobs}
 
     \begin{frameddefn}{Church numerals}
-        The \tbf{Church numerals} are defined by a mapping between natural numbers $\N$ and $\lambda$-abstractions: $$\funcmap{\varphi}{\N}{\Lambda}{n}{\lambda xy. \underbrace{x ( \ldots ( x}_{n \ \mathrm{times}}y)}$$
+        The \tbf{Church numerals} are defined by a mapping between natural numbers $\N$ and $\lambda$-abstractions: $$\funcmap{\varphi}{\N}{\Lambda}{n}{\lambda xy. \underbrace{x ( \ldots ( x}_{n \ \mathrm{times}}y))}$$
     \end{frameddefn}
 
     The Church numeral corresponding to $n \in \N$ will be represented as $\underline n \in \Lambda$.
 
     \begin{example}[Church numerals]
-        For example, the number $\underline 0$ is represented as $$\varphi(0) = \underline 0 = \lambda xy. y \equiv \mathrm F \equiv \mathrm O$$ number $\underline 1$ as $$\varphi(1) = \underline 1 = \lambda xy.xy \equiv \mathrm T \equiv \mathrm K$$ and number $\underline 2$ as $$\varphi(2) = \underline 2 = \lambda xy.xxy$$ and so on.
+        For example, the number $\underline 0$ is represented as $$\varphi(0) = \underline 0 = \lambda xy. y \equiv \mathrm F \equiv \mathrm O$$ number $\underline 1$ as $$\varphi(1) = \underline 1 = \lambda xy.xy \equiv \mathrm T \equiv \mathrm K$$ and number $\underline 2$ as $$\varphi(2) = \underline 2 = \lambda xy.x(xy)$$ and so on.
     \end{example}
 
-    The following are some important $\lambda$-functions. \todo{da finire}
+    \begin{framedobs}[label={church_iterators}]{Church numerals are iterators}
+        Note that Church numerals are \tbf{iterators}, in the sense that $\underline n$ replicates any input function $f$ for $n$ times
+        \begin{equation*}
+            \begin{split}
+                \underline n \ f \ \chi &\equiv (\lambda xy.\underbrace{x(\ldots(x}_{n \ \mathrm{times}}y))) \ f \ \chi \\
+                                        &\betaconv \underbrace{f(\ldots(f}_{n \ \mathrm{times}}\chi))
+            \end{split}
+        \end{equation*}
+    \end{framedobs}
+
+    The following are some important $\lambda$-functions for Church numerals:
+    
+    \begin{itemize}
+        \item \tbf{successor function}: $$\underline s \equiv \lambda xyz. xy(yz)$$ which given a Church numeral $\underline n$, it returns $\underline {n + 1}$, which is easy to show
+            \begin{equation*}
+                \begin{split}
+                    \underline s \ \underline n &\equiv (\lambda abc.ab(bc)) \ (\lambda xy. \underbrace{x ( \ldots ( x}_{n \ \mathrm{times}}y))) \\
+                                              &\betaconv \lambda bc.(\lambda xy. \underbrace{x ( \ldots ( x}_{n \ \mathrm{times}}y)) \ b \ (bc)) \\
+                                              &\betaconv \lambda bc. (\lambda y. \underbrace{b ( \ldots ( b}_{n \ \mathrm{times}}y)) \ (bc)) \\
+                                              &\betaconv \lambda bc. \underbrace{b ( \ldots ( b}_{n +1 \ \mathrm{times}} c)) \\
+                \end{split}
+            \end{equation*}
+        \item \tbf{is-zero function}: $$\underline z \equiv \lambda f.f(\lambda t.\mathrm F) \mathrm T$$ which given a Church numeral $\underline n$, it returns $\mathrm T$ if and only if $\underline n$ is $\underline 0$, and it can be proven at follows
+            \begin{equation*}
+                \begin{split}
+                    \underline z \ \underline 0 &\equiv (\lambda f.f(\lambda t.\mathrm F) \mathrm T) \ (\lambda xy.y) \\
+                                                &\betaconv (\lambda xy.y) (\lambda t.\mathrm F) \mathrm T \\
+                                                &\betaconv \mathrm T
+                \end{split}
+            \end{equation*}
+            and
+            \begin{equation*}
+                \begin{split}
+                    \underline z \ \underline n &\equiv (\lambda f.f(\lambda t.\mathrm F) \mathrm T) \ (\lambda xy. \underbrace{x ( \ldots ( x}_{n \ \mathrm{times}}y))) \\
+                                                &\betaconv (\lambda xy. \underbrace{x ( \ldots ( x}_{n \ \mathrm{times}}y))) (\lambda t.\mathrm F)\mathrm T \\
+                                                &\betaconv \underbrace{(\lambda t.\mathrm F)(\ldots ((\lambda t.\mathrm F)}_{n \ \mathrm{times}} \mathrm T)) \\
+                                                &\betaconv \mathrm F
+                \end{split}
+            \end{equation*}
+        \item \tbf{addition function}: $$\mathrm{add} \equiv \lambda ab.a \ \underline s \ b$$ a proof of this function is omitted, but it can be intuitively explained by using \cref{church_iterators}, which suggests that if $\underline a$ and $\underline b$ are two Church numerals, then $\underline a \ \underline s \ \underline b$ is the repeated application of $\underline s$ exactly $a$ times to $\underline b$
+    \end{itemize}
 
     \begin{frameddefn}{Fixed point}
         Given a function $\func{f}{X}{Y}$, an element $x \in X$ is said to be a \tbf{fixed point of $f$} if and only if $f(x) = x$.
@@ -330,6 +370,28 @@
                                                   &\betaconv \lambda x_3 x_2 x_1 .P
             \end{split}
         \end{equation*}
+    }
+
+    \begin{framedprob}{Solve for $X$}
+        Find $X$ such that $$X xyz = Xz(uv)$$
+    \end{framedprob}
+
+    \solution{
+        The term is $$X \equiv (\lambda tabc.tc(uv)) X$$ because
+        \begin{equation*}
+            \begin{split}
+                (\lambda tabc.tc(uv)) X xyz &\betaconv (\lambda abc.Xc(uv)) xyz \\
+                                            &\betaconv Xz(uv)
+            \end{split}
+        \end{equation*}
+    }
+
+    \begin{framedprob}{Solve for $\Delta$}
+        Find $\Delta$ such that $$\soe{l}{\Delta \mathrm S = y_1 \\ \Delta \mathrm K = y_2 \\ \Delta \mathrm I = y_3}$$
+    \end{framedprob}
+
+    \solution{
+        Assume that $$\Delta \equiv \lambda x.x P_1 P_2 P_3$$ for some $\lambda$-terms $P_1$, $P_2$ and $P_3$; then $$\soe{l}{\Delta \mathrm S \betaconv \mathrm S \ P_1 P_2 P_3 \betaconv P_1 P_3(P_2 P_3)\\ \Delta \mathrm K \betaconv \mathrm K \ P_1 P_2 P_3 \betaconv P_1 P_3\\ \Delta \mathrm I \betaconv \mathrm I \ P_1 P_2 P_3 \betaconv P_1 P_2 P_3}$$ However, this cannot be a correct assumption, because if $$\Delta \mathrm K \betaconv P_1P_3 = y_2$$ then $$\Delta \mathrm S \betaconv P_1P_3 (P_2P_3) = y_2(P_2P_3) \neq y_1$$ which means that $\Delta \mathrm S$ cannot be evaulated to $y_1$. This issue can be solved by assuming that $$\Delta \equiv \lambda x.x P_1 P_2 P_3 P_4$$ for some other term $\lambda$-term $P_4$, in fact $$\soe{l}{\Delta \mathrm S \betaconv \mathrm S \ P_1 P_2 P_3 P_4 \betaconv P_1 P_3(P_2 P_3)P_4\\ \Delta \mathrm K \betaconv \mathrm K \ P_1 P_2 P_3 P_4 \betaconv P_1 P_3 P_4 \\ \Delta \mathrm I \betaconv \mathrm I \ P_1 P_2 P_3 P_4 \betaconv P_1 P_2 P_3 P_4}$$ and if $P_1 = \lambda xy.y$ then $$\Delta \mathrm K \betaconv P_1 P_3 P_4 \betaconv (\lambda xy.y) P_3 P_4 \betaconv P_4$$ whch means that $P_4$ must be $y_2$. Moreover $$\Delta \mathrm I \betaconv P_1P_2P_3P_4 \equiv (\lambda xy.y)P_2P_3 y_2 \betaconv P_3y_2 = y_3 \iff P_3 = \lambda t.y_3$$ and finally $$\Delta \mathrm S\betaconv P_1P_3(P_2P_3)P_4 \equiv (\lambda xy.y)(\lambda t.y_3)(P_2(\lambda t.y_3))y_2 \iff P_2 = \lambda ab.y_1$$
     }
 
 \end{document}
