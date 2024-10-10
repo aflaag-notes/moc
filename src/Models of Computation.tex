@@ -134,8 +134,8 @@
         \begin{equation*}
             \begin{split}
                 \mathrm I &\equiv \lambda x.x \\
-                \mathrm K &\equiv T \equiv \lambda xy.x \\
-                \mathrm O &\equiv F \equiv \lambda xy.y \\
+                \mathrm K &\equiv \lambda xy.x \\
+                \mathrm O &\equiv \lambda xy.y \\
                 \mathrm S &\equiv \lambda xyz.xz(yz) \\
                 \mathrm B &\equiv \lambda fgx.f(gx) \\
                 \mathrm C &\equiv \lambda abc.acb \\
@@ -209,6 +209,49 @@
     \begin{example}[Projectors]
         Given a tuple $\lambda x.x M_1 \ldots M_k$, its $j$-th element can be accessed as follows: $$\lambda x.x \pi_j^k (\lambda x.x M_1 \ldots M_k) \betaconv (\lambda x.x M_1 \ldots M_k) \pi_j^k \betaconv \pi_j^k M_1 \ldots M_k \betaconv M_j$$
     \end{example}
+
+    \begin{frameddefn}{Booleans}
+        \tbf{Booleans} can be defined in $\lambda$-calculus as follows: $$\centeredsoe{\mathrm T \equiv \lambda xy.x \\ \mathrm F \equiv \lambda xy.y}$$
+    \end{frameddefn}
+
+    \begin{frameddefn}{Conditionals}
+        \tbf{Conditionals} can be defined in $\lambda$-calculus as follows: $$\mathrm{ite} = \lambda xyz.xyz$$
+    \end{frameddefn}
+
+    Note that $\mathrm{ite}$ stands for \tit{\curlyquotes{if-then-else}}, and in fact, the term behaves exactly like a condition when used in conjunction with the $\lambda$-booleans.
+
+    \begin{framedobs}{Conditionals}
+        The term $\mathrm{ite}$ correctly behaves as a \tit{conditional} when used with $\mathrm T$ and $\mathrm F$. In fact, when used in an term such as $$\mathrm{ite} \ \mathrm C \ \mathrm A \ \mathrm B$$ if $\mathrm C$ is a $\lambda$-boolean, the term with be $\beta$-reduced to $\mathrm A$ if $\mathrm C \equiv \mathrm T$, and it will be evaluated to $\mathrm B$ if $\mathrm C \equiv \mathrm F$. Indeed
+        \begin{equation*}
+            \begin{split}
+                \mathrm{ite} \  \mathrm T \ \mathrm A \ \mathrm B &\equiv (\lambda xyz.xyz) \ \mathrm T \ \mathrm A \ \mathrm B \\
+                                                                  &\betaconv \mathrm T \ \mathrm A \ \mathrm B \\
+                                                                  &\equiv (\lambda xy.x) \ \mathrm A \ \mathrm B \\
+                                                                  &\betaconv \mathrm A \\
+            \end{split}
+        \end{equation*}
+        and
+        \begin{equation*}
+            \begin{split}
+                \mathrm{ite} \  \mathrm F \ \mathrm A \ \mathrm B &\equiv (\lambda xyz.xyz) \ \mathrm F \ \mathrm A \ \mathrm B \\
+                                                                  &\betaconv \mathrm F \ \mathrm A \ \mathrm B \\
+                                                                  &\equiv (\lambda xy.y) \ \mathrm A \ \mathrm B \\
+                                                                  &\betaconv \mathrm B \\
+            \end{split}
+        \end{equation*}
+    \end{framedobs}
+
+    \begin{frameddefn}{Church numerals}
+        The \tbf{Church numerals} are defined by a mapping between natural numbers $\N$ and $\lambda$-abstractions: $$\funcmap{\varphi}{\N}{\Lambda}{n}{\lambda xy. \underbrace{x ( \ldots ( x}_{n \ \mathrm{times}}y)}$$
+    \end{frameddefn}
+
+    The Church numeral corresponding to $n \in \N$ will be represented as $\underline n \in \Lambda$.
+
+    \begin{example}[Church numerals]
+        For example, the number $\underline 0$ is represented as $$\varphi(0) = \underline 0 = \lambda xy. y \equiv \mathrm F \equiv \mathrm O$$ number $\underline 1$ as $$\varphi(1) = \underline 1 = \lambda xy.xy \equiv \mathrm T \equiv \mathrm K$$ and number $\underline 2$ as $$\varphi(2) = \underline 2 = \lambda xy.xxy$$ and so on.
+    \end{example}
+
+    The following are some important $\lambda$-functions. \todo{da finire}
 
     \begin{frameddefn}{Fixed point}
         Given a function $\func{f}{X}{Y}$, an element $x \in X$ is said to be a \tbf{fixed point of $f$} if and only if $f(x) = x$.
