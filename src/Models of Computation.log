@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.9.22)  10 OCT 2024 22:59
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2024.10.12)  12 OCT 2024 11:22
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1794,7 +1794,7 @@ Package logreq Info: Writing requests to '"Models of Computation".run.xml'.
 (\end occurred when \ifx on line 39 was incomplete) 
 Here is how much of TeX's memory you used:
  73560 strings out of 476024
- 1801525 string characters out of 5792396
+ 1801525 string characters out of 5792395
  3005549 words of memory out of 5000000
  94659 multiletter control sequences out of 15000+600000
  583496 words of font info for 93 fonts, out of 8000000 for 9000
