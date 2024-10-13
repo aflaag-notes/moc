@@ -119,6 +119,8 @@
         \tbf{Currying} (named after \href{https://en.wikipedia.org/wiki/Haskell_Curry}{Haskell Curry}) is defined as follows: $$\lambda x_1.(\ldots (\lambda x_n. y)) \equiv \lambda x_1 \ldots x_n . y$$
     \end{frameddefn}
 
+    Additionally, the following notation $$\lambda \vec x . f \ \vec x$$ will denote \tbf{vectors} in place of $$\lambda x_1 \ldots x_n . f \ x_1 \ldots x_n$$
+
     \begin{frameddefn}{Boundness}
         A variable is said to be \tbf{bound} if it is declared in a $\lambda$-abstraction, otherwise it is said to be \tbf{free}.
 
@@ -159,11 +161,20 @@
             x[N/x] = N \\ \\
             y[N/x] = y \\ \\
             (P Q)[N/x] = P[N/x] \ Q[N/x] \\ \\
-            (\lambda t.P)[N/x] = \lambda t.(P[N/x])
+            (\lambda y.P)[N/x] = \lambda y.(P[N/x]) \ \mathrm{if \ } y \neq x \\ \\
+            (\lambda x.P)[N/x] = \lambda x.P
         \end{gather*}
 
         where $M[N/x]$ means that \tit{each instance of $x$ in $M$ is replaced with $N$}. Note that \tbf{only \tbf{free variables} may be substituted}.
     \end{frameddefn}
+
+    \begin{framedlem}{Substitution lemma}
+        Let $M, N, L \in \Lambda$; if $x \neq y$ and $x \notin \mathrm{free}(L)$, then $$M[M/x][L/y] \equiv M[L/y][N[L/y]/x]$$
+    \end{framedlem}
+
+    \begin{proof}
+        By induction on the structure of $M$, the details are omitted.
+    \end{proof}
 
     \begin{frameddefn}[label={inf rules}]{Inference rules}
         The following are the \tbf{inference rules} for the lambda caluclus:
@@ -177,6 +188,10 @@
 
         Note that the $\beta$-rule is effectively \tit{one step of the computation} described by the $\lambda$-term.
     \end{frameddefn}
+
+    If $M \equiv N$ is provable in the $\lambda$-caluclus, it will be written as $$\lambda \vdash M \equiv N$$
+
+    Additionally, if a term $N$ can be derived from $M$ through $\beta$-reductions $$M \betaconv \ldots \betaconv N$$ it will be written as $M \leadsto N$.
 
     \begin{frameddefn}{Normal form}
          If a term can be $\beta$-reduced, it is called \tbf{$\beta$-redex}, or simply \tbf{redex} (\tit{reducible expression}), and the reduced term is called \tbf{$\beta$-reduct}, or simply \tbf{reduct}.
@@ -197,10 +212,10 @@
     \end{frameddefn}
 
     \begin{frameddefn}{Tuples}
-        A \tbf{tuple} of the form $$(M_1, \ldots, M_k)$$ can be represented in $\lambda$-calculus as follows: $$\lambda x.xM_1 \ldots M_k$$
+        A \tbf{tuple} of the form $$(M_1, \ldots, M_k)$$ can be represented in $\lambda$-calculus as follows: $$\lambda x.xM_1 \ldots M_k$$ In $\lambda$-caluclus, tuples will be represented as follows $$[M_1, \ldots, M_k]$$
     \end{frameddefn}
 
-    To access the elements of a tuple, \tit{projectors} are used, which are defined below
+    To access the elements of a tuple, \tit{projectors} are used, which are defined below.
 
     \begin{frameddefn}{Projector}
         A \tbf{projector} has the following form $$\lambda x.x\pi_j^k$$ where $$\pi_j^k \equiv \lambda x_1 \ldots x_k.x_j$$
@@ -336,9 +351,114 @@
         \end{equation*}
     \end{proof}
 
-    Note that the $\mathrm Y$ combinator can be used to perform \tit{recursion} inside $\lambda$-calculus, because of the following property: $$\centeredsoe{h(\mathrm Y h) = \mathrm Y h \\ h(h(\mathrm Y h)) = h(\mathrm Y h) = \mathrm Y h \\ \vdots \\ h (\ldots (h(\mathrm Y h))) = \mathrm Y h}$$ \todo{should i go deeper?}
+    Note that the $\mathrm Y$ combinator can be used to perform \tit{recursion} inside $\lambda$-calculus, because of the following property: $$\centeredsoe{h(\mathrm Y h) = \mathrm Y h \\ h(h(\mathrm Y h)) = h(\mathrm Y h) = \mathrm Y h \\ \vdots \\ h (\ldots (h(\mathrm Y h))) = \mathrm Y h}$$ \todo{go deeper into rec}
 
-    % Note that a \curlyquotes{recursive function} in $\lambda$-caluclus has to take the previous case as input. For instance, consider the following function $$h := $$
+    % \begin{framedcor}{}
+    %
+    % \end{framedcor}
+
+    \begin{frameddefn}{Numeric function}
+        A \tbf{numeric function} is a map $\func{f}{\N^p}{\N}$ for some $p$.
+    \end{frameddefn}
+
+    \begin{frameddefn}{$\lambda$-definable function}
+        A function is said to be \tbf{$\lambda$-definable} if there exists a closed term $F$ such that $$F \ \underline{n_1} \ldots \underline{n_p} \equiv \underline{f(n_1, \ldots, n_p)}$$ If that is the case, $f$ is said to be \tbf{$\lambda$-defined} by $F$.
+    \end{frameddefn}
+
+    \begin{frameddefn}{Initial functions}
+        The following are the so called \tbf{initial functions}:
+        \begin{equation*}
+            \begin{split}
+                U_r^i(x_1, \ldots, x_r) &= x_i, \quad 1 \le i \le r \\
+                \succfn(n) &= n + 1 \\
+                \mathrm{zero}(n) &= 0
+            \end{split}
+        \end{equation*}
+    \end{frameddefn}
+
+    In particular, the first equations are called \tbf{projection functions}, the second is the \tbf{successor function} and the last is called \tbf{constant function}.
+
+    \begin{frameddefn}{Composition}
+        Given an $m$-ary function $h(x_1, \ldots, x_m)$ and $k$ $m$-ary functions $$g_1(x_1, \ldots, x_k), \ldots, g_m(x_1, \ldots, x_k)$$, the \tbf{composition operator} is defined as follows: $$f := h \circ (g_1, \ldots, g_m)$$ where $$f(\vec x) = h(g_1(\vec x), \ldots, g_m(\vec x))$$
+    \end{frameddefn}
+
+    \begin{framedlem}[label={lem:composition}]{Composition}
+        The $\lambda$-definable functions are closed under \tit{composition}.
+    \end{framedlem}
+
+    \begin{proof}
+        Let $h, g_1, \ldots, g_m$ be defined by the $\lambda$-terms $H, G_1, \ldots, G_m$ respectively. Then $$F \equiv \lambda \vec x. H(G_1\vec x) \ldots (G_m \vec x)$$ $\lambda$-defines $h \circ (g_1, \ldots, g_m)$.
+    \end{proof}
+    
+    \begin{frameddefn}{Primitive recursion}
+        Given a $k$-ary function $g(x_1, \ldots, x_k)$ and a $(k + 2)$-ary function $h(y, z, x_1, \ldots, x_k)$, the \tbf{primitive recursion operator} is a $(k + 1)$-ary function $\rho$ is defined as follows: $$f := \rho (g, h)$$ where
+        \begin{equation*}
+            \begin{split}
+                f(0, \vec n) &= g(\vec x) \\
+                f(\succfn(n), \vec x) &= h(y, f(y, \vec x), \vec x)
+            \end{split}
+        \end{equation*}
+    \end{frameddefn}
+    
+    \begin{framedlem}[label={lem:prim_rec}]{Primitive recursion}
+        The $\lambda$-definable functions are closed under \tit{primitive recursion}.
+    \end{framedlem}
+
+    \begin{proof}
+        Let $f$ be a function such that
+        \begin{equation*}
+            \begin{split}
+                f(0) &= g \\
+                f(k + 1) &= h(f(k), k)
+            \end{split}
+        \end{equation*}
+        which is a weaker version of the \tit{primitive recursion operator}, but the proof for general $\vec n$ is similar (details are omitted).
+
+        Consider the following term $$T \equiv \lambda p. [\underline s (p \ \mathrm T), H(p \ \mathrm F)  (p \ \mathrm T)]$$ where $H$ $\lambda$-defines $h$, and note how it computes over the following input
+        \begin{equation*}
+            \begin{split}
+                T \ [\underline k, \underline{f(x)}] &\leadsto [\underline s \ \underline k, H \ \underline{f(x)} \ \underline k] \\
+                                                     &\betaconv [\underline{k +1}, H \ \underline{f(x)} \ \underline k] \\
+                                                     &\equiv [\underline{k + 1}, \underline{f(k +1)}]
+            \end{split}
+        \end{equation*}
+        (the last step follows from $f$'s definition) therefore, $T$ describes the following function $$\funcmap{t}{\N \times \N}{\N \times \N}{(k, f(k))}{(k + 1, f(k + 1))}$$ Hence, by induction, it follows that $$[\underline k, \underline{f(k + 1)}] \equiv T^k \ [\underline 0, \underline{f(0)}]$$ and because Church numerals are iterators (as shown in \cref{church_iterators}), it follows that $$\underline{f(k)} \equiv \underline k \ T \ [\underline 0, \underline{f(0)}] \ \mathrm F$$ Finally, $f$ can be $\lambda$-defined by the following term $$F \equiv \lambda k. k \ T \ [\underline 0, \underline G] \ \mathrm F$$ where $G$ $\lambda$-defines $g$.
+    \end{proof}
+
+    \begin{frameddefn}{Minimalization}
+        Given a $(k + 1)$-ary function $f(y, x_1, \ldots, x_k)$, the \tbf{minimization operator} is a $k$-ary function $\mu(f)$ defined as follows: $$\mu(f)(\vec x) = z \iff \forall i \in [0, z - 1] \quad f(i, \vec x) > 0 \land f(z, \vec x) = 0$$
+    \end{frameddefn}
+
+    In other words, that \tit{minimization operator} seeks the smallest argument that causes the function to return zero. If there is no such argument, or if an argument is encountered for which $f$ is not defined, then the search never terminates, and $\mu(f)$ is not defined for $\vec x$.
+
+    \begin{framedlem}[label={lem:minimalization}]{Minimalization}
+        The $\lambda$-definable functions are closed under minimalization
+    \end{framedlem}
+
+    \begin{proof}
+        TODO
+    \end{proof}
+
+    \begin{frameddefn}{Recursive functions}
+        The class $\mathcal R$ is the smallest class of \tit{numeric functions} that contains \tit{all initial functions}, and is closed under \tit{composition}, \tit{primitive recursion} and \tit{minimization}.
+    \end{frameddefn}
+
+    \begin{framedthm}{Recursive functions}
+        All recursive functions are $\lambda$-definable, therefore $$\mathcal R \subsetneq \Lambda$$
+    \end{framedthm}
+
+    \begin{proof}
+        The following terms $\lambda$-define \tit{initial functions}:
+        \begin{equation*}
+            \begin{split}
+                U_p^i &\equiv \pi_j^k \\
+                \succfn &\equiv \underline s \\
+                \mathrm{zero} &\equiv \underline 0
+            \end{split}
+        \end{equation*}
+
+        Thus, the theorem follows directly from \cref{lem:composition}, \cref{lem:prim_rec} and \cref{lem:minimalization}.
+    \end{proof}
 
     \section{Exercises}
 
