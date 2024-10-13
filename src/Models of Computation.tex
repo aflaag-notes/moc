@@ -460,6 +460,21 @@
         Thus, the theorem follows directly from \cref{lem:composition}, \cref{lem:prim_rec} and \cref{lem:minimalization}.
     \end{proof}
 
+    \begin{frameddefn}{Total function}
+        A function $\func{f}{X}{Y}$ is said to be \tbf{total} if it is defined for any $x \in X$, i.e. if $\dom f = X$. If $\dom f \subsetneq X$, $f$ is said to be a \tbf{partial function}.
+    \end{frameddefn}
+
+    \begin{frameddefn}{Recursive set}
+        A set $S \subset \N$ is said to be \tbf{recursive}, or \tbf{computable}, if there exists a \tit{total \href{https://en.wikipedia.org/wiki/Computable_function}{computable function}} $f$ such that $$f(x) = \soe{ll}{1 & x \in S \\ 0 & x \notin S}$$
+    \end{frameddefn}
+
+    Intuitively, a set $S$ is \tbf{recursive} if its indicator function $\1_S$ is \tit{computable}.
+
+    Assume that the set of variables can be defined as $V = \{v, v', v'', \ldots\}$, and let $v^{(0)} = v$, $v^{(n + 1)} = v^{(n) \prime}$.
+    
+    \begin{frameddefn}{}
+    \end{frameddefn}
+
     \section{Exercises}
 
     \begin{framedprob}{Solve for $X$}
