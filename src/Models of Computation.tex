@@ -100,7 +100,7 @@
  
     In this first section, examples will be omitted from this notes, refer to the notes of the \curlyquotes{\href{https://github.com/aflaag-notes/languages}{Linguaggi di Programmazione}} course for further details. \todo{this notes are WIP, sections WILL change}
 
-    \begin{frameddefn}[breakable]{Lambda calculus}
+    \begin{frameddefn}[breakable]{$\lambda$-calculus}
         Let $\mathrm{Var}$ be the set of all possible variables; thus, the \tbf{set $\Lambda$ of all possible $\lambda$-terms} is defined by the following rules:
         \begin{gather*}
             [var] \ \dfrac{x \in \mathrm{Var}}{x \in \Lambda} \\ \\
@@ -131,7 +131,7 @@
         Consider the following term: $$\lambda x.xy$$ In this example, $x$ is \tit{bound}, and $y$ is \tit{free}.
     \end{example}
 
-    \begin{frameddefn}{Notable combinators}
+    \begin{frameddefn}[label={not_comb}]{Notable combinators}
         The following are some of the \tbf{notable combinators}:
         \begin{equation*}
             \begin{split}
@@ -460,20 +460,103 @@
         Thus, the theorem follows directly from \cref{lem:composition}, \cref{lem:prim_rec} and \cref{lem:minimalization}.
     \end{proof}
 
-    \begin{frameddefn}{Total function}
-        A function $\func{f}{X}{Y}$ is said to be \tbf{total} if it is defined for any $x \in X$, i.e. if $\dom f = X$. If $\dom f \subsetneq X$, $f$ is said to be a \tbf{partial function}.
-    \end{frameddefn}
-
-    \begin{frameddefn}{Recursive set}
-        A set $S \subset \N$ is said to be \tbf{recursive}, or \tbf{computable}, if there exists a \tit{total \href{https://en.wikipedia.org/wiki/Computable_function}{computable function}} $f$ such that $$f(x) = \soe{ll}{1 & x \in S \\ 0 & x \notin S}$$
-    \end{frameddefn}
-
-    Intuitively, a set $S$ is \tbf{recursive} if its indicator function $\1_S$ is \tit{computable}.
-
-    Assume that the set of variables can be defined as $V = \{v, v', v'', \ldots\}$, and let $v^{(0)} = v$, $v^{(n + 1)} = v^{(n) \prime}$.
+    % \begin{frameddefn}{Total function}
+    %     A function $\func{f}{X}{Y}$ is said to be \tbf{total} if it is defined for any $x \in X$, i.e. if $\dom f = X$. If $\dom f \subsetneq X$, $f$ is said to be a \tbf{partial function}.
+    % \end{frameddefn}
+    %
+    % \begin{frameddefn}{Recursive set}
+    %     A set $S \subset \N$ is said to be \tbf{recursive}, or \tbf{computable}, if there exists a \tit{total \href{https://en.wikipedia.org/wiki/Computable_function}{computable function}} $f$ such that $$f(x) = \soe{ll}{1 & x \in S \\ 0 & x \notin S}$$
+    % \end{frameddefn}
+    %
+    % Intuitively, a set $S$ is \tbf{recursive} if its indicator function $\1_S$ is \tit{computable}.
+    %
+    % Assume that the set of variables can be defined as $V = \{v, v', v'', \ldots\}$, and let $v^{(0)} = v$, $v^{(n + 1)} = v^{(n) \prime}$.
     
-    \begin{frameddefn}{}
+    \begin{frameddefn}{Combinatory Logic}
+        \tbf{Combinatory Logic} is a simplified model of computation, related to $\lambda$-calculus, defined as follows:
+        \begin{gather*}
+            [var] \ \dfrac{x \in \mathrm{Var}}{x \in \mathrm{CL}} \\ \\
+            [appl] \ \dfrac{U \in \Lambda \quad V \in \Lambda}{U V \in \mathrm{CL}} \\ \\
+            [const] \ \dfrac{x \in \mathrm{Const}}{x \in \mathrm{CL}}
+        \end{gather*}
+
+        where the set $\mathrm{Const}$ is defined by the following \tbf{constants}: $$\mathrm{Const} := \{\mathrm S, \mathrm K, \mathrm I, \mathrm B, \mathrm C\}$$
     \end{frameddefn}
+
+    Association rules are the same as the ones for $\lambda$-calculus. Note that, in combinatory logic, there are \tbf{no abstractions}, therefore \tit{all variables are free}. To compute with CL, \tbf{reductions} are defined as follows:
+
+    \begin{equation*}
+        \begin{split}
+            \mathrm S xys &\triangleright xy(yz) \\
+            \mathrm K xy &\triangleright x \\
+            \mathrm I x &\triangleright x \\
+            \mathrm B xyz &\triangleright x(yz) \\
+            \mathrm C xyz &\triangleright xzy
+        \end{split}
+    \end{equation*}
+
+    \begin{framedthm}{Equivalence of $\lambda$-calculus and CL}
+        Every $\lambda$-term can be written as a CL term, and viceversa.
+    \end{framedthm}
+
+    \begin{proof}
+        Given a CL term $U \in \mathrm{CL}$:
+
+        \begin{itemize}
+            \item if $U \in \mathrm{CL}$ because $U \in \mathrm{Var}$, then $U \in \Lambda$ by definition of $\Lambda$
+            \item if $U \in \mathrm{CL}$ because $U \equiv (MN)$ where $M, N \in \mathrm{CL}$, then $(MN) \in \Lambda$ because applications are defined in $\lambda$-caluclus as well, and $M, N \in \Lambda$ inductively
+            \item finally, if $U \in \mathrm{CL}$ because $U \in \mathrm{Const}$, then simply convert the CL constant into a $\lambda$-combinator (refer to \cref{not_comb})
+        \end{itemize}
+
+        This proves that $\mathrm{CL} \subseteq \Lambda$. To show the other inclusion, a similar reasoning can be applied, except for $\lambda$-abstractions, which do not exist in CL. Nevertheless, the following recursive algorithm returns a CL term equivalent to any given $\lambda$-abstraction. Let the \tit{swap} operation be defined as follows: $$\funcmap{\mathrm{swap}}{\Lambda_{abstr}}{\mathrm{CL}}{\lambda x. P}{[x]P}$$ then, the conversion algorithm defines additional rules to the \tit{swap} operation as follows:
+
+        \begin{equation*}
+            \begin{split}
+                [x]Ux &= U \\
+                [x]x &= \mathrm I \\
+                [x]U &= \mathrm KU \quad \quad \quad \quad \quad x \notin \mathrm{free}(U) \\
+                [x]UW &= \mathrm BU([x]W) \quad \quad x \in \mathrm{free}(V), \ x \in \mathrm{free}(W) \\
+                [x]VU &= \mathrm C([x]V)U \\
+                [x]VW &= \mathrm S([x]V)([x]W)
+            \end{split}
+        \end{equation*}
+    \end{proof}
+
+    An intuition of the correctness of the algorithm can be provided as follows (bounded variables are renamed differently from \cref{not_comb}, to match the definitions in the algorithm):
+
+    \begin{itemize}
+        \item the first rule is a special case
+        \item $\mathrm{swap}(\mathrm I) = \mathrm{swap}(\lambda x.x) = [x] x$
+        \item $\mathrm{swap}(\mathrm K U) = \mathrm{swap}(\lambda x.U) = [x]U$
+        \item $\mathrm{swap}(\mathrm B U(\lambda a.W))=\mathrm{swap}(\lambda x.U(\lambda a.W)x) = [x]UW$
+        \item $\mathrm{swap}(\mathrm C(\lambda a.V)U) = \mathrm{swap}(\lambda x.(\lambda a.V)xU) = [x]VU$
+        \item $\mathrm{swap}(\mathrm S (\lambda a. V)(\lambda b . W) ) = \mathrm{swap}(\lambda x.(\lambda a. V)x(\lambda(b.W)x)) = [x]VW$
+    \end{itemize}
+
+    \begin{example}[Conversion $\Lambda$ to CL]
+        Consider the following $\lambda$-term $$\lambda xy. ytx$$ it can be converted into a CL term as follows
+        \begin{equation*}
+            \begin{split}
+                \mathrm{swap}(\lambda xy. ytx) &= \mathrm{swap}([x](\lambda y. ytx)) \\
+                                               &= [x]([y](yt)x) \\
+                                               &= [x](\mathrm C([y]yt)x) \\
+                                               &= [x](\mathrm C(\mathrm C([y]y)t)x) \\
+                                               &= [x]\mathrm C(\mathrm C \mathrm I t)x \\
+                                               &= \mathrm C(\mathrm C \mathrm It)
+            \end{split}
+        \end{equation*}
+
+        and in fact
+
+        \begin{equation*}
+            \begin{split}
+                \mathrm C (\mathrm C\mathrm I t)xy &\triangleright \mathrm C \mathrm I t y x \\
+                                                   &\triangleright \mathrm I y t \\
+                                                   &\triangleright ytx
+            \end{split}
+        \end{equation*}
+    \end{example}
+
 
     \section{Exercises}
 
@@ -482,7 +565,7 @@
     \end{framedprob}
     
     \solution{
-        The term is $$X \equiv (\lambda fbt. t(fb)) X$$ because
+        The term is $$X \equiv (\lambda fbt. t(fb)) X \implies X \equiv \mathrm Y(\lambda fbt.t(fb))$$ because
         \begin{equation*}
             \begin{split}
                 Xx &\betaconv (\lambda fbt .t(fb)) X x \\
@@ -512,7 +595,7 @@
     \end{framedprob}
 
     \solution{
-        The term is $$X \equiv (\lambda tabc.tc(uv)) X$$ because
+        The term is $$X \equiv (\lambda tabc.tc(uv)) X \implies X \equiv \mathrm Y (\lambda tabc.tc(uv))$$ because
         \begin{equation*}
             \begin{split}
                 (\lambda tabc.tc(uv)) X xyz &\betaconv (\lambda abc.Xc(uv)) xyz \\
