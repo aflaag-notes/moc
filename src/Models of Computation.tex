@@ -94,11 +94,9 @@
 
     \chapter{TODO}
 
-    \section{TODO}
+    \section{$\lambda$-caluclus}
 
-    \subsection{TODO}
- 
-    In this first section, examples will be omitted from this notes, refer to the notes of the \curlyquotes{\href{https://github.com/aflaag-notes/languages}{Linguaggi di Programmazione}} course for further details. \todo{this notes are WIP, sections WILL change}
+    In this first section, examples will be omitted from this notes, refer to the notes of the \curlyquotes{\href{https://github.com/aflaag-notes/languages}{Linguaggi di Programmazione}} course for further details.
 
     \begin{frameddefn}[breakable]{$\lambda$-calculus}
         Let $\mathrm{Var}$ be the set of all possible variables; thus, the \tbf{set $\Lambda$ of all possible $\lambda$-terms} is defined by the following rules:
@@ -146,6 +144,17 @@
         \end{equation*}
     \end{frameddefn}
 
+    In particular
+    
+    \begin{itemize}
+        \item I stands for \curlyquotes{Identity}, in fact it is the identity function
+        \item K stands for \curlyquotes{Konstant}, meaning \tit{constant} in german, and in fact K yields a constant function
+        \item S stands for \curlyquotes{Satz}, which translates to \tit{substitution} in german, and plays a central role in \cref{comb_logic}
+        \item B stands for \curlyquotes{Belegung}, meaningn \tit{binding} in german, in fact B is the composition operator
+        \item C stands for \curlyquotes{Commutator}, which is precisely what the C combinator performs
+        \item W is the duplicating combinator, and it is called W because the letter W resambles the shape of two V's placed side by side
+    \end{itemize}
+
     \begin{frameddefn}{Free variables}
         Given a $\lambda$-term, the function $$\func{\mathrm{free}}{\Lambda}{\mathcal P(\mathrm{Var})}$$ returns the \tbf{set of free variables in $M$}, and it is defined recursively as follows:
         $$\soe{l}{
@@ -154,6 +163,8 @@
             \mathrm{free}(\lambda x.M) := \mathrm{free}(M) - \{x\}
         }$$
     \end{frameddefn}
+
+    \subsection{$\beta$-reduction}
 
     \begin{frameddefn}{Substitution}
         The \tbf{substitution} operation is recursively defined by the following rules:
@@ -210,6 +221,8 @@
 
         From now on, it will be assumed that any $\beta$-reduction is performed by renaming opportunely the \tbf{bound} variables, such that in each step of the computation the naming convention is followed.
     \end{frameddefn}
+
+    \subsection{Data structures}
 
     \begin{frameddefn}{Tuples}
         A \tbf{tuple} of the form $$(M_1, \ldots, M_k)$$ can be represented in $\lambda$-calculus as follows: $$\lambda x.xM_1 \ldots M_k$$ In $\lambda$-caluclus, tuples will be represented as follows $$[M_1, \ldots, M_k]$$
@@ -306,7 +319,52 @@
                 \end{split}
             \end{equation*}
         \item \tbf{addition function}: $$\mathrm{add} \equiv \lambda ab.a \ \underline s \ b$$ a proof of this function is omitted, but it can be intuitively explained by using \cref{church_iterators}, which suggests that if $\underline a$ and $\underline b$ are two Church numerals, then $\underline a \ \underline s \ \underline b$ is the repeated application of $\underline s$ exactly $a$ times to $\underline b$
+        \item \tbf{predecessor function}: $$\mathrm P \equiv \lambda x.x(\lambda ab z. zb (\underline s \ b))$$ which is a term such that
+            \begin{equation*}
+                \begin{split}
+                    \mathrm P \ [\underline m, \underline n] &\equiv (\lambda x.x(\lambda ab z. zb (\underline s \ b))) \ (\lambda u. u \ \underline m \ \underline n) \\
+                                                             &\betaconv (\lambda u. u \ \underline m \ \underline n) (\lambda abz.zb(\underline s \ b)) \\
+                                                             &\betaconv (\lambda abz. zb(\underline s \ b)) \ \underline m \ \underline n \\
+                                                             &\betaconv \lambda z . z \ \underline n \ (\underline s \ \underline n) \\
+                                                             &\equiv [\underline n, \underline{n + 1}]
+                \end{split}
+            \end{equation*}
+            therefore
+            \begin{equation*}
+                \begin{split}
+                    \underline n \ \mathrm P \ [\underline 0, \underline 0] &\betaconv \underbrace{\mathrm P( \ldots (\mathrm P}_{\mathrm{n \ times}} \ [\underline 0, \underline 0])) \\
+                                                                            &\betaconv \underbrace{\mathrm P( \ldots (\mathrm P}_{\mathrm{n - 1 \ times}} \ [\underline 0, \underline 1])) \\
+                                                                            &\betaconv \underbrace{\mathrm P( \ldots (\mathrm P}_{\mathrm{n - 2 \ times}} \ [\underline 1, \underline 2])) \\
+                                                                            &\betaconv \ldots \\
+                                                                            &\betaconv [\underline{n - 1}, \underline n]
+                \end{split}
+            \end{equation*}
+            which means that the following term $$\underline p \equiv \lambda x . \mathrm T (x \ \mathrm P \ [\underline 0, \underline 0])$$ is such that $$\underline p \ \underline n \leadsto \underline{n - 1}$$
     \end{itemize}
+
+    Church numerals are not the only way to define a system of numerals in $\lambda$-calculus. In fact, \href{https://en.wikipedia.org/wiki/Henk_Barendregt}{Hank Barendregt} proposed the following system in 1976.
+
+    \begin{frameddefn}{Barendregt numerals}
+        The Barendregt numerals are defined inductively as follows:
+        \begin{equation*}
+            \begin{split}
+                \baren 0 &\equiv \mathrm I \\
+                \baren {n + 1} &\equiv [\mathrm F, \baren n]
+            \end{split}
+        \end{equation*}
+    \end{frameddefn}
+    
+    Therefore, we have that $$\baren n \equiv [\underbrace{\mathrm F, \ldots, [\mathrm F}_{\mathrm{n \ times}}, \mathrm I]]$$
+
+    From this definition, the following $\lambda$-function for Barendregt numerals can be defined:
+
+    \begin{itemize}
+        \item \tbf{successor function}: $$\mathbf s \equiv \lambda x. x[\mathrm F, x]$$
+        \item \tbf{predecessor function}: $$\mathbf f \equiv \lambda x.x \ \mathrm F$$ which consumes the outermost tuple
+        \item \tbf{is-zero function}: $$\mathbf z \equiv \lambda x.x \ \mathrm T$$ because it returns F, the first element of any tuple, for any Barendregt numeral, except when the input is not a tuple but I itself, which is precisely $\baren 0$
+    \end{itemize}
+
+    \subsection{Recursion}
 
     \begin{frameddefn}{Fixed point}
         Given a function $\func{f}{X}{Y}$, an element $x \in X$ is said to be a \tbf{fixed point of $f$} if and only if $f(x) = x$.
@@ -351,11 +409,9 @@
         \end{equation*}
     \end{proof}
 
-    Note that the $\mathrm Y$ combinator can be used to perform \tit{recursion} inside $\lambda$-calculus, because of the following property: $$\centeredsoe{h(\mathrm Y h) = \mathrm Y h \\ h(h(\mathrm Y h)) = h(\mathrm Y h) = \mathrm Y h \\ \vdots \\ h (\ldots (h(\mathrm Y h))) = \mathrm Y h}$$ \todo{go deeper into rec}
+    Note that the $\mathrm Y$ combinator can be used to perform \tit{recursion} inside $\lambda$-calculus, because of the following property: $$\centeredsoe{h(\mathrm Y h) = \mathrm Y h \\ h(h(\mathrm Y h)) = h(\mathrm Y h) = \mathrm Y h \\ \vdots \\ h (\ldots (h(\mathrm Y h))) = \mathrm Y h}$$
 
-    % \begin{framedcor}{}
-    %
-    % \end{framedcor}
+    \subsection{Recursive functions}
 
     \begin{frameddefn}{Numeric function}
         A \tbf{numeric function} is a map $\func{f}{\N^p}{\N}$ for some $p$.
@@ -472,6 +528,8 @@
     %
     % Assume that the set of variables can be defined as $V = \{v, v', v'', \ldots\}$, and let $v^{(0)} = v$, $v^{(n + 1)} = v^{(n) \prime}$.
     
+    \subsection{Combinatory Logic} \label{comb_logic}
+
     \begin{frameddefn}{Combinatory Logic}
         \tbf{Combinatory Logic} is a simplified model of computation, related to $\lambda$-calculus, defined as follows:
         \begin{gather*}
@@ -514,12 +572,14 @@
             \begin{split}
                 [x]Ux &= U \\
                 [x]x &= \mathrm I \\
-                [x]U &= \mathrm KU \quad \quad \quad \quad \quad x \notin \mathrm{free}(U) \\
-                [x]UW &= \mathrm BU([x]W) \quad \quad x \in \mathrm{free}(V), \ x \in \mathrm{free}(W) \\
+                [x]U &= \mathrm KU \\
+                [x]UW &= \mathrm BU([x]W) \\
                 [x]VU &= \mathrm C([x]V)U \\
                 [x]VW &= \mathrm S([x]V)([x]W)
             \end{split}
         \end{equation*}
+
+        where $U, V, W \in \mathrm{CL}$ are three CL terms such that $x \notin \mathrm{free}(U)$ and $x \in \mathrm{free}(V), \mathrm{free}(W)$.
     \end{proof}
 
     An intuition of the correctness of the algorithm can be provided as follows (bounded variables are renamed differently from \cref{not_comb}, to match the definitions in the algorithm):
@@ -557,6 +617,14 @@
         \end{equation*}
     \end{example}
 
+    Because CL and $\Lambda$ are equivalent, Church numerals can be defined in CL as well:
+
+    \begin{itemize}
+        \item $\mathrm{swap}(\underline 0) = \mathrm{swap}(\lambda xy. y) = [x] [y] y = [x] \mathrm I = \mathrm K \mathrm I$ and in fact $\mathrm K \mathrm I xy \triangleright \mathrm I y \triangleright y$
+        \item $\mathrm{swap}(\underline 1) = \mathrm{swap}(\lambda xy.xy) = [x][y]xy = [x] x = \mathrm I$ and in fact $\mathrm I xy \triangleright xy$
+        \item $\mathrm{swap}(\underline 2) = \mathrm{swap}(\lambda xy. x(xy)) = [x][y]x (xy) = [x]\mathrm B x([y]xy) = [x] \mathrm Bx x = \mathrm S([x] \mathrm Bx)([x]x) = \mathrm S \mathrm B \mathrm I $ and in fact $\mathrm S \mathrm B \mathrm I xy \triangleright \mathrm B x(\mathrm I x) y \triangleright \mathrm B xx y \triangleright x(xy)$
+        \item in general, we have that $$\mathrm{swap}(\underline n) = \underbrace{\mathrm S \mathrm B( \ldots (\mathrm S \mathrm B}_{\mathrm{n - 1 \ times}} \mathrm I ))$$
+    \end{itemize}
 
     \section{Exercises}
 
