@@ -269,6 +269,8 @@
         \end{equation*}
     \end{framedobs}
 
+    Additionally, it is possible to define the logical \tbf{not} operator, as follows: $$\mathrm{not} \equiv \lambda t. t \mathrm F \mathrm T$$ which clearly negates the boolean given as input $$\centeredsoe{\mathrm{not} \ \mathrm T \equiv (\lambda t. t \mathrm F \mathrm T) \ \mathrm T \betaconv \mathrm F \\ \mathrm{not} \ \mathrm F \equiv (\lambda t. t \mathrm F \mathrm T)  \ \mathrm F \betaconv \mathrm T}$$
+
     \begin{frameddefn}{Church numerals}
         The \tbf{Church numerals} are defined by a mapping between natural numbers $\N$ and $\lambda$-abstractions: $$\funcmap{\varphi}{\N}{\Lambda}{n}{\lambda xy. \underbrace{x ( \ldots ( x}_{n \ \mathrm{times}}y))}$$
     \end{frameddefn}
@@ -678,6 +680,37 @@
 
     \solution{
         Assume that $$\Delta \equiv \lambda x.x P_1 P_2 P_3$$ for some $\lambda$-terms $P_1$, $P_2$ and $P_3$; then $$\soe{l}{\Delta \mathrm S \betaconv \mathrm S \ P_1 P_2 P_3 \betaconv P_1 P_3(P_2 P_3)\\ \Delta \mathrm K \betaconv \mathrm K \ P_1 P_2 P_3 \betaconv P_1 P_3\\ \Delta \mathrm I \betaconv \mathrm I \ P_1 P_2 P_3 \betaconv P_1 P_2 P_3}$$ However, this cannot be a correct assumption, because if $$\Delta \mathrm K \betaconv P_1P_3 = y_2$$ then $$\Delta \mathrm S \betaconv P_1P_3 (P_2P_3) = y_2(P_2P_3) \neq y_1$$ which means that $\Delta \mathrm S$ cannot be evaulated to $y_1$. This issue can be solved by assuming that $$\Delta \equiv \lambda x.x P_1 P_2 P_3 P_4$$ for some other term $\lambda$-term $P_4$, in fact $$\soe{l}{\Delta \mathrm S \betaconv \mathrm S \ P_1 P_2 P_3 P_4 \betaconv P_1 P_3(P_2 P_3)P_4\\ \Delta \mathrm K \betaconv \mathrm K \ P_1 P_2 P_3 P_4 \betaconv P_1 P_3 P_4 \\ \Delta \mathrm I \betaconv \mathrm I \ P_1 P_2 P_3 P_4 \betaconv P_1 P_2 P_3 P_4}$$ and if $P_1 = \lambda xy.y$ then $$\Delta \mathrm K \betaconv P_1 P_3 P_4 \betaconv (\lambda xy.y) P_3 P_4 \betaconv P_4$$ whch means that $P_4$ must be $y_2$. Moreover $$\Delta \mathrm I \betaconv P_1P_2P_3P_4 \equiv (\lambda xy.y)P_2P_3 y_2 \betaconv P_3y_2 = y_3 \iff P_3 = \lambda t.y_3$$ and finally $$\Delta \mathrm S\betaconv P_1P_3(P_2P_3)P_4 \equiv (\lambda xy.y)(\lambda t.y_3)(P_2(\lambda t.y_3))y_2 \iff P_2 = \lambda ab.y_1$$
+    }
+
+    \begin{framedprob}{Solve for $\Delta$}
+        Find $\Delta$ such that $$\soe{l}{\Delta(\lambda xyz.x(xy \mathrm I)x) = y_1 \\ \Delta(\lambda xyz.x(xyz)x) = y_2}$$
+    \end{framedprob}
+
+    \solution{
+        Let $\mathrm{flip} \equiv \lambda xy. yx$; $\Delta$ can be defined as follows: $$\Delta \equiv \lambda x. x \ \mathrm{flip} \ \mathrm T \ \mathrm{not} \ (\lambda x.x y_1 y_2)$$ in fact
+        \begin{equation*}
+            \begin{split}
+                (\lambda x. x \ \mathrm{flip} \ \mathrm T \ \mathrm{not} \ (\lambda x.x y_1 y_2))(\lambda xyz.x(xy \mathrm I) x) &\leadsto \mathrm{flip} (\mathrm{flip} \ \mathrm T \ \mathrm I ) \mathrm{flip} \ (\lambda x.xy_1 y_2) \\
+                                                                                                                                 &\betaconv \mathrm{flip}(\mathrm I \ \mathrm T) \mathrm{flip}\  (\lambda x.xy_1y_2) \\
+                                                                                                                                 &\betaconv \mathrm{flip} \ \mathrm T \  \mathrm{flip} \ (\lambda x.xy_1y_2) \\
+                                                                                                                                 &\betaconv \mathrm{flip} \ \mathrm T \ (\lambda x.xy_1y_2) \\
+                                                                                                                                 &\betaconv (\lambda x.xy_1y_2) \ \mathrm T\\
+                                                                                                                                 &\betaconv y_1
+            \end{split}
+        \end{equation*}
+
+        and
+
+        \begin{equation*}
+            \begin{split}
+                (\lambda x. x \ \mathrm{flip} \ \mathrm T \ \mathrm{not} \ (\lambda x.x y_1 y_2))(\lambda xyz.x(xyz)x) &\leadsto \mathrm{flip}(\mathrm{flip} \ \mathrm T \ \mathrm{not}) \mathrm{flip} \ (\lambda x.xy_1y_2) \\
+                                                                                                                       &\betaconv \mathrm{flip}(\mathrm {not} \ \mathrm T) \mathrm{flip} \ (\lambda x.xy_1y_2) \\
+                                                                                                                       &\betaconv \mathrm{flip}(\mathrm{not} \ \mathrm T) \ (\lambda x.xy_1y_2) \\
+                                                                                                                       &\betaconv \mathrm{flip} \ \mathrm{F} \ (\lambda x.xy_1y_2) \\
+                                                                                                                       &\betaconv (\lambda x.xy_1y_2) \ \mathrm F \\
+                                                                                                                       &\betaconv  y_2
+            \end{split}
+        \end{equation*}
     }
 
 \end{document}
