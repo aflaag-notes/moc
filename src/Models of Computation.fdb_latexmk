@@ -1,18 +1,18 @@
 # Fdb version 4
-["bibtex Models of Computation"] 1730542977.85853 "Models of Computation.aux" "Models of Computation.bbl" "Models of Computation" 1730543854.17672 0
-  "./Models_of_Computation-blx.bib" 1730543853.84086 344 e588c9a99e172ae2d6714a5a36257b2b ""
+["bibtex Models of Computation"] 1730553689.6662 "Models of Computation.aux" "Models of Computation.bbl" "Models of Computation" 1730553695.19808 0
+  "./Models_of_Computation-blx.bib" 1730553694.81707 344 e588c9a99e172ae2d6714a5a36257b2b ""
   "/usr/share/texmf-dist/bibtex/bst/biblatex/biblatex.bst" 1727349926 65484 b7949c47a88ed6dca66ebc7a04577312 ""
-  "Models of Computation.aux" 1730543853.80753 2913 194789d6c4cc3234179c4d3f3bf87ed2 "pdflatex"
+  "Models of Computation.aux" 1730553694.78707 2871 e46104e2f896859eb984e778d7477251 "pdflatex"
   (generated)
   "Models of Computation.bbl"
   "Models of Computation.blg"
   (rewritten before read)
-["pdflatex"] 1730543848.75623 "Models of Computation.tex" "Models of Computation.pdf" "Models of Computation" 1730543854.17692 0
+["pdflatex"] 1730553689.7468 "Models of Computation.tex" "Models of Computation.pdf" "Models of Computation" 1730553695.19829 0
   "../../packages/Nyx/logo.png" 1710239380.27782 91419 8de48debf770a599a084520c83ce5d80 ""
-  "../../packages/Nyx/nyx-frames.sty" 1728154319.12301 4375 747ecc81b9cc3ddd6a4162d2d8d9e05e ""
+  "../../packages/Nyx/nyx-frames.sty" 1730545171.4708 4376 730bb9314e6334af341fc698dd174186 ""
   "../../packages/Nyx/nyx-intro.sty" 1710239380.27782 3476 d82343305e561945eb7e4f3f9e3a4fe2 ""
-  "../../packages/Nyx/nyx-macros.sty" 1730540668.16768 11378 8dc144f8d23224ef8ba518524277b95f ""
-  "../../packages/Nyx/nyx-packages.sty" 1730540595.25435 2176 5b0ee731127ac8b3f7f4c116a904b27c ""
+  "../../packages/Nyx/nyx-macros.sty" 1730545171.47747 11378 8dc144f8d23224ef8ba518524277b95f ""
+  "../../packages/Nyx/nyx-packages.sty" 1730545171.47747 2180 7e020a75436fc0488ad2dabf373bd668 ""
   "../../packages/Nyx/nyx-styles.sty" 1727791284.42041 2711 ab41eef68f7a8b6ee5e3649068efc0de ""
   "../../packages/Nyx/nyx-title.sty" 1710239380.27782 3255 b8b7faa898231df2f4371d144bf17fa9 ""
   "/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1727349926 2971 def0b6c1f0b107b3b936def894055589 ""
@@ -406,12 +406,12 @@
   "/usr/share/texmf-dist/web2c/texmf.cnf" 1727349926 41588 b43d3e860a4f94167ee1e725ff526a72 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1728724236.9752 5312047 b07fcd2a9090df96fc745b92a3db793b ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1728724212 7165013 4ac378a529a7bd4fbdbbd71d85e222b1 ""
-  "Models of Computation.aux" 1730543853.80753 2913 194789d6c4cc3234179c4d3f3bf87ed2 "pdflatex"
-  "Models of Computation.bbl" 1730542977.91757 513 6453c26b054cf82854b5a9bba6be666a "bibtex Models of Computation"
-  "Models of Computation.out" 1730543853.8342 1095 e99d08ed4a719297d9192b00bcdf9414 "pdflatex"
-  "Models of Computation.run.xml" 1730543853.84086 2655 c2b64e629745a7461af74a9357c19f08 "pdflatex"
-  "Models of Computation.tex" 1730543846.9342 41380 d15d1f621a5afe19930c53597a6876e7 ""
-  "Models of Computation.toc" 1730543853.84086 876 eb6983c0c3f96d3c01ad105ad85c57b6 "pdflatex"
+  "Models of Computation.aux" 1730553694.78707 2871 e46104e2f896859eb984e778d7477251 "pdflatex"
+  "Models of Computation.bbl" 1730553689.73374 513 6453c26b054cf82854b5a9bba6be666a "bibtex Models of Computation"
+  "Models of Computation.out" 1730553694.8104 1095 e99d08ed4a719297d9192b00bcdf9414 "pdflatex"
+  "Models of Computation.run.xml" 1730553694.81707 2655 c2b64e629745a7461af74a9357c19f08 "pdflatex"
+  "Models of Computation.tex" 1730553682.14374 41380 91e8b9ba08f29a1d93c9303814f6dbd9 ""
+  "Models of Computation.toc" 1730553694.81707 876 eb6983c0c3f96d3c01ad105ad85c57b6 "pdflatex"
   (generated)
   "Models of Computation.aux"
   "Models of Computation.log"
