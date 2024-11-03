@@ -391,7 +391,7 @@
     \end{framedprop}
 
     \begin{proof}
-        If the Kleene's combinator can return the fixed point of a given function $h$, it means that $\mathrm Y h$ is $h$'s fixed point. Therefore, the statement that has to be proved is that $$h (\mathrm Y h) \equiv \mathrm Y h$$ This can be proved for both formulations of the $\mathrm Y$ combinator, as follows:
+        If the Kleene's combinator can return the fixed point of a given function $h$, it means that $\mathrm Y h$ is $h$'s fixed point. Therefore, the statement that has to be proved is that $$h (\mathrm Y h) = \mathrm Y h$$ This can be proved for both formulations of the $\mathrm Y$ combinator, as follows:
         \begin{equation*}
             \begin{split}
                 \mathrm Y h &\betaconv (\lambda f .(\lambda x.f(xx)) (\lambda x.f(xx))) h \\
@@ -544,7 +544,6 @@
     \end{frameddefn}
 
     Association rules are the same as the ones for $\lambda$-calculus. Note that, in combinatory logic, there are \tbf{no abstractions}, therefore \tit{all variables are free}. To compute with CL, \tbf{reductions} are defined as follows:
-
     \begin{equation*}
         \begin{split}
             \mathrm S xys &\triangleright xy(yz) \\
@@ -712,5 +711,76 @@
             \end{split}
         \end{equation*}
     }
+
+    \begin{framedprob}{Solve for $\Delta$}
+        Find $\Delta = \lambda x.x UV$ such that $$\soe{l}{\Delta \Delta = \mathrm K \\ \Delta \mathrm K = \mathrm S}$$
+    \end{framedprob}
+
+    \solution{
+        From the second equation we get that
+        \begin{equation*}
+            \begin{split}
+                \Delta \mathrm K &\equiv (\lambda x.x U V) \mathrm K\\
+                                 &\betaconv \mathrm K UV \\
+                                 &\betaconv U
+            \end{split}
+        \end{equation*}
+        therefore $$U = \mathrm S$$ Hence, from the first equation
+        \begin{equation*}
+            \begin{split}
+                \Delta \Delta &\equiv (\lambda x.x \mathrm S V) (\lambda x.x \mathrm S V) \\
+                              &\betaconv (\lambda x.x \mathrm S V) \mathrm S V \\
+                              &\betaconv \mathrm S \mathrm S VV \\
+                              &\betaconv \mathrm S V(VV) \\
+                              &\equiv (\lambda xyz.xz(yz)) V (VV) \\
+                              &\betaconv \lambda z.Vz(VVz)
+            \end{split}
+        \end{equation*}
+        therefore $$\lambda z.Vz(VVz) \mathrm K$$ for which it is sufficient to choose $$V = \lambda uvt.u$$ in fact
+        \begin{equation*}
+            \begin{split}
+                \lambda z.Vz(VVz) &\equiv \lambda z.(\lambda uvt.u)z((\lambda uvt.u)(\lambda uvt.u)z) \\
+                                  &\betaconv \lambda z.(\lambda t.z) \\
+                                  &\equiv \mathrm K
+            \end{split}
+        \end{equation*}
+    }
+
+    \begin{framedprob}{From $\Lambda$ to CL}
+        Convert the following $\lambda$-term into CL $$\lambda uv.uuvv$$ and verify the solution.
+    \end{framedprob}
+
+    \solution{
+        The solution can be found by applying the \tit{swap} algorithm
+        \begin{equation*}
+            \begin{split}
+                \mathrm{swap}(\lambda uv.uuvv) &= [u][v](uuv)v \\
+                                               &= [u]\mathrm S ([v](uu)v) ([v]v) \\
+                                               &= [u]\mathrm S (\mathrm B (uu) ([v] v)) \mathrm I \\
+                                               &= [u]\mathrm S (\mathrm B (uu) \mathrm I) \mathrm I \\
+                                               &= \mathrm C ([u] \mathrm S(\mathrm B(uu)\mathrm I)) \mathrm I \\
+                                               &= \mathrm C (\mathrm B\mathrm S([u]\mathrm B(uu)\mathrm I)) \mathrm I \\
+                                               &= \mathrm C(\mathrm B\mathrm S(\mathrm C([u] \mathrm B(uu))\mathrm I)) \mathrm I \\
+                                               &= \mathrm C(\mathrm B\mathrm S(\mathrm C(\mathrm B \mathrm B([u]uu))\mathrm I)) \mathrm I \\
+                                               &= \mathrm C(\mathrm B\mathrm S(\mathrm C(\mathrm B \mathrm B(\mathrm S([u]u) ([u]u)))\mathrm I)) \mathrm I \\
+                                               &= \mathrm C(\mathrm B\mathrm S(\mathrm C(\mathrm B \mathrm B(\mathrm S\mathrm I\mathrm I))\mathrm I)) \mathrm I \\
+            \end{split}
+        \end{equation*}
+    }
+    and it can be verified as follows
+    \begin{equation*}
+        \begin{split}
+            \mathrm C(\mathrm B\mathrm S(\mathrm C(\mathrm B \mathrm B(\mathrm S\mathrm I\mathrm I))\mathrm I)) \mathrm I uv &\triangleright \mathrm B\mathrm S(\mathrm C(\mathrm B \mathrm B(\mathrm S\mathrm I\mathrm I))\mathrm I) u \mathrm I v \\
+                                                                                                                             &\triangleright \mathrm S(\mathrm C(\mathrm B \mathrm B(\mathrm S\mathrm I\mathrm I))\mathrm I u) \mathrm I v \\
+                                                                                                                             &\triangleright \mathrm S(\mathrm B \mathrm B(\mathrm S\mathrm I\mathrm I) u \mathrm I) \mathrm I v \\
+                                                                                                                             &\triangleright \mathrm S (\mathrm B (\mathrm S \mathrm I \mathrm I u) \mathrm I) \mathrm I v \\
+                                                                                                                             &\triangleright \mathrm S (\mathrm B (\mathrm I u (\mathrm I u))\mathrm I) \mathrm I v \\
+                                                                                                                             &\triangleright \mathrm S (\mathrm B ( u u)\mathrm I) \mathrm I v \\
+                                                                                                                             &\triangleright (\mathrm B (uu)\mathrm I) v(\mathrm I v) \\
+                                                                                                                             &\triangleright \mathrm B (uu)\mathrm I vv \\
+                                                                                                                             &\triangleright (uu)(\mathrm Iv )v \\
+                                                                                                                             &\triangleright uuvv
+        \end{split}
+    \end{equation*}
 
 \end{document}
